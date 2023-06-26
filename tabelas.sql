@@ -21,13 +21,14 @@ CREATE TABLE telefone_doador(
 CREATE TABLE funcionario (
 	codigo INTEGER PRIMARY KEY,
 	nome   VARCHAR(255) NOT NULL,
-	CRM    VARCHAR (100),
-	COREN  VARCHAR (100)
+	CRM    VARCHAR(100),
+	COREN  VARCHAR(100)
 );
 
 CREATE TABLE atende(
 	codigo_fun INTEGER REFERENCES funcionario(codigo),
-	cpf        VARCHAR(11) REFERENCES doador(cpf)
+	cpf        VARCHAR(11) REFERENCES doador(cpf),
+	PRIMARY KEY (codigo_fun, cpf)
 );
 
 CREATE TABLE hospital(
@@ -38,8 +39,8 @@ CREATE TABLE hospital(
 	numero 		   INTEGER,
 	bairro 		   VARCHAR(100) NOT NULL,
 	cidade 		   VARCHAR(100) NOT NULL,
-	cep 		   VARCHAR(20) NOT NULL,
-	tipo_sanguineo CHAR(4) NOT NULL
+	cep 		   VARCHAR(20)  NOT NULL,
+	tipo_sanguineo CHAR(4)      NOT NULL
 );
 
 CREATE TABLE telefone_hospital(
@@ -76,6 +77,7 @@ CREATE TABLE bolsa_de_sangue(
 CREATE TABLE recebe(
 	cnpj_hospital VARCHAR(50) REFERENCES hospital(cnpj),
 	codigo_bolsa  INTEGER REFERENCES bolsa_de_sangue(codigo),
+	PRIMARY KEY(cnpj_hospital, codigo_bolsa)
 	data DATE,
 	hora TIME
 );
