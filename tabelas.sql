@@ -77,7 +77,7 @@ CREATE TABLE bolsa_de_sangue(
 CREATE TABLE recebe(
 	cnpj_hospital VARCHAR(50) REFERENCES hospital(cnpj),
 	codigo_bolsa  INTEGER REFERENCES bolsa_de_sangue(codigo),
-	PRIMARY KEY(cnpj_hospital, codigo_bolsa)
+	PRIMARY KEY(cnpj_hospital, codigo_bolsa),
 	data DATE,
 	hora TIME
 );
