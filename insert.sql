@@ -1,5 +1,4 @@
 --Doador
-
 INSERT INTO Doador (cpf, nome, idade, email, logradouro, numero, bairro, cidade, cep, tiposanguineo)
 VALUES 
     ('12345678901', 'João Silva', 30, 'joao@gmail.com', 'Rua dos Bandeirantes', 123, 'Centro', 'São Paulo', '01234-567', 'A+'),
@@ -14,7 +13,6 @@ VALUES
     ('01012345678', 'Fernando Pereira', 32, 'fernando@gmail.com', 'Rua das Palmeiras', 2223, 'Itaim Bibi', 'São Paulo', '67890-123', 'AB-');
 
 --telefone doador
-
 INSERT INTO telefone_doador (cpf, numero)
 VALUES
     ('12345678901', '987654321'),
@@ -29,7 +27,6 @@ VALUES
     ('90123456789', '987654321');
 
 --funcionario
-
 INSERT INTO funcionario (codigo, nome, CRM, COREN)
 VALUES
     (1, 'Laura Rodrigues Souza', '123456', NULL),
@@ -44,7 +41,6 @@ VALUES
     (10, 'Camila Almeida Fernandes', NULL, '246813');
 
 --atende
-
 INSERT INTO atende (codigo_fun, cpf)
 VALUES
     (1, '12345678901'),
@@ -59,7 +55,6 @@ VALUES
     (7, '01012345678');
 
 --hospital
-
 INSERT INTO hospital (cnpj, email, nome, logradouro, numero, bairro, cidade, cep, tipo_sanguineo)
 VALUES
     ('12345678901234', 'hospitalcentral@gmail.com', 'Hospital Central', 'Rua da Saúde', 123, 'Centro', 'São Paulo', '01234-567', 'A+'),
@@ -74,7 +69,6 @@ VALUES
     ('01012345678901', 'hospitalsantacasa@gmail.com', 'Hospital Santa Casa', 'Rua das Oliveiras', 2223, 'Vila Mariana', 'São Paulo', '67890-123', 'AB-');
 
 --telefone_hospital
-
 INSERT INTO telefone_hospital (cnpj_hospital, numero)
 VALUES
     ('12345678901234', '(11) 9876-5432'),
@@ -89,7 +83,6 @@ VALUES
     ('56789012345678', '(11) 9012-3456');
 
 --ponto_de_coleta
-
     INSERT INTO ponto_de_coleta (cnpj, email, nome, segmento, logradouro, numero, bairro, cidade, cep)
 VALUES
     ('21981639000175', 'hospitalsaolucas@gmail.com', 'Hospital São Lucas', 'Hospitalar', 'Rua A', 123, 'Centro', 'São Paulo', '01234-567'),
@@ -104,7 +97,6 @@ VALUES
     ('70387346000170', 'hospitalsantacasa@gmail.com', 'Hospital Santa Casa', 'Hospitalar', 'Rua J', 2223, 'Vila Mariana', 'São Paulo', '67890-123');
 
 --telefone_ponto_de_coleta
-
     INSERT INTO telefone_ponto_de_coleta (cnpj_coleta, numero)
 VALUES
     ('21981639000175', '(11) 9274-5432'),
@@ -119,7 +111,6 @@ VALUES
     ('74900301000108', '(11) 9556-7892');
 
 --bolsa_de_sangue
-
     INSERT INTO bolsa_de_sangue (codigo, cpf, data, cnpj)
 VALUES
     (1, '12345678901', '2023-01-10', '21981639000175'),
@@ -134,7 +125,6 @@ VALUES
     (10, '01012345678', '2023-10-25', '70387346000170');
 
 --recebe
-
 INSERT INTO recebe (cnpj_hospital, codigo_bolsa, data, hora)
 VALUES
     ('12345678901234', 1, '2023-01-10', '10:00:00'),
