@@ -39,7 +39,7 @@ CREATE TABLE hospital(
 	numero 		   INTEGER,
 	bairro 		   VARCHAR(100) NOT NULL,
 	cidade 		   VARCHAR(100) NOT NULL,
-	cep 		   VARCHAR(20)  NOT NULL,
+	cep 		   VARCHAR(20)  NOT NULL
 );
 
 CREATE TABLE telefone_hospital(
@@ -82,17 +82,6 @@ CREATE TABLE recebe(
 );
 
 
---READ
-SELECT * FROM doador;
-SELECT * FROM telefone_doador;
-SELECT * FROM bolsa_de_sangue;
-SELECT * FROM hospital;
-SELECT * FROM telefone_hospital;
-SELECT * FROM recebe;
-SELECT * FROM ponto_de_coleta;
-SELECT * FROM telefone_ponto_de_coleta;
-SELECT * FROM funcionario;
-SELECT * FROM atende;
 
 
 

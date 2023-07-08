@@ -58,3 +58,16 @@ INNER JOIN recebe r ON b.codigo = r.codigo_bolsa
 INNER JOIN hospital h ON r.cnpj_hospital = h.cnpj;
 
 SELECT * FROM view_doador_recebimento;
+
+
+--READ
+SELECT * FROM doador;
+SELECT * FROM telefone_doador;
+SELECT * FROM bolsa_de_sangue;
+SELECT * FROM hospital;
+SELECT * FROM telefone_hospital;
+SELECT * FROM recebe;
+SELECT * FROM ponto_de_coleta;
+SELECT * FROM telefone_ponto_de_coleta;
+SELECT * FROM funcionario;
+SELECT * FROM atende;

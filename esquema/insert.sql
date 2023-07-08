@@ -1,5 +1,5 @@
 --Doador
-INSERT INTO Doador (cpf, nome, idade, email, logradouro, numero, bairro, cidade, cep, tiposanguineo)
+INSERT INTO Doador (cpf, nome, idade, email, logradouro, numero, bairro, cidade, cep, tipo_sanguineo)
 VALUES 
     ('12345678901', 'João Silva', 30, 'joao@gmail.com', 'Rua dos Bandeirantes', 123, 'Centro', 'São Paulo', '01234-567', 'A+'),
     ('23456789012', 'Maria Santos', 45, 'maria@gmail.com', 'Avenida Brasil', 456, 'Jardins', 'Rio de Janeiro', '12345-678', 'B-'),
@@ -59,10 +59,10 @@ INSERT INTO hospital (cnpj, email, nome, logradouro, numero, bairro, cidade, cep
 VALUES
     ('12345678901234', 'hospitalcentral@gmail.com', 'Hospital Central', 'Rua da Saúde', 123, 'Centro', 'São Paulo', '01234-567'),
     ('23456789012345', 'hospitalsaolucas@gmail.com', 'Hospital São Lucas', 'Avenida Paulista', 456, 'Bela Vista', 'São Paulo', '12345-678'),
-    ('34567890123456', 'hospitalesperanca@gmail.com', 'Hospital Esperança', 'Rua dos Mártires', 789, 'Centro', 'Recife', '98765-432', 'O+'),
+    ('34567890123456', 'hospitalesperanca@gmail.com', 'Hospital Esperança', 'Rua dos Mártires', 789, 'Centro', 'Recife', '98765-432'),
     ('45678901234567', 'hospitaldasclinicas@gmail.com', 'Hospital das Clínicas', 'Rua das Universidades', 1011, 'Cidade Universitária', 'São Paulo', '54321-098'),
     ('56789012345678', 'hospitalsantatereza@gmail.com', 'Hospital Santa Tereza', 'Avenida das Palmeiras', 1213, 'Santa Teresa', 'Rio de Janeiro', '10293-847'),
-    ('67890123456789', 'hospitalnossasenhora@gmail.com', 'Hospital Nossa Senhora', 'Rua das Flores', 1415, 'Centro', 'Porto Alegre', '76543-210', 'B+'),
+    ('67890123456789', 'hospitalnossasenhora@gmail.com', 'Hospital Nossa Senhora', 'Rua das Flores', 1415, 'Centro', 'Porto Alegre', '76543-210'),
     ('78901234567890', 'hospitalsaofrancisco@gmail.com', 'Hospital São Francisco', 'Avenida Independência', 1617, 'Independência', 'Porto Alegre', '54321-987'),
     ('89012345678901', 'hospitalmemorial@gmail.com', 'Hospital Memorial', 'Rua dos Cravos', 1819, 'Laranjeiras', 'Rio de Janeiro', '90876-543'),
     ('90123456789012', 'hospitaldocoracao@gmail.com', 'Hospital do Coração', 'Avenida das Acácias', 2021, 'Centro', 'São Paulo', '23456-789'),
