@@ -1,13 +1,14 @@
-Sistema de Gerenciamento de Banco de Dados
+## Etapa 1: Definição do domínio do sistema
 
-Implementar os seguintes itens em um SGBD referentes ao Modelo Relacional criado na questão anterior
+## Etapa 2: Descrição de Requisitos e Entidades
 
-a) Criar o esquema do banco.
+## Etapa 3: Diagrama Entidade-Relacionamento
 
-b) Povoar o banco com dados (pelo menos 10 tuplas em cada relação).
+## Etapa 4: Mapeamento do Modelo Relacional
 
-c) Criar consultas (pelo menos 5) e visões (pelo menos uma) realmente útil para o sistema.
+## Etapa 5: Normalização
 
-ATENÇÃO: Pelo menos 5 consultas e uma visão devem manipular mais de uma relação. As visões devem representar consultas complexas. Deverão ser escritas
+## Etapa 6: SGBD (Esquema, consultas e Visão)
 
-consultas / visões com: funções agregadas, consultas aninhadas, inner e outer joins, group by, having, ALL / SOME/ ANY, EXISTS, IN.
+## Etapa 7: Função, gatilho e usuários
+## Etapa 8: Aplicação 
