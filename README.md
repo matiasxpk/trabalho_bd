@@ -12,3 +12,9 @@
 
 ## Etapa 7: Função, gatilho e usuários
 ## Etapa 8: Aplicação 
+
+## Etapa 1: Definição do domínio do sistema
+
+## Etapa 2: Descrição de Requisitos e Entidades
+Implementar uma aplicação simples que faz consultas, inserções e remoções em relações criadas no trabalho. As consultas aos dados devem ser baseadas nas consultas/visões/procedimentos armazenados criados.
+
