@@ -40,7 +40,6 @@ CREATE TABLE hospital(
 	bairro 		   VARCHAR(100) NOT NULL,
 	cidade 		   VARCHAR(100) NOT NULL,
 	cep 		   VARCHAR(20)  NOT NULL,
-	tipo_sanguineo CHAR(4)      NOT NULL
 );
 
 CREATE TABLE telefone_hospital(
