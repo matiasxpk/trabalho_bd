@@ -1,4 +1,5 @@
 import psycopg2
+import tkinter as tk
 import customtkinter
 # Estabelecer a conexão com o banco de dados
 conn = psycopg2.connect(
@@ -14,14 +15,14 @@ cur = conn.cursor()
 class TelaInicial:
     def __init__(self, root):
         self.root = root
-        customtkinter.set_appearance_mode("dark")
-        customtkinter.set_default_color_theme("dark-blue")
-        self.root.geometry("500x300")
-        self.root.title("Escolha")
+        customtkinter.set_appearance_mode("System")
+        self.root.geometry("700x500")
+        self.root.title("Sistem de Doação de Sangue")
 
-
-        self.label = customtkinter.CTkLabel(root, text="Escolha uma opção:", width=20)
-        self.label.pack(padx=10, pady=10)
+        self.title = customtkinter.CTkLabel(root, text="Hematocare", font=("Century Gothic bold", 24), text_color="#fff")
+        self.spam = customtkinter.CTkLabel(root, text="Escolha uma opção:", font=("Century Gothic bold", 16), text_color="#fff" )
+        self.title.pack(padx=0, pady=10)
+        self.spam.pack(padx=50, pady=70)
 
         self.button_doador = customtkinter.CTkButton(root, text="Doador", command=self.abrir_tela_doador)
         self.button_doador.pack(padx=10, pady=10)
@@ -44,19 +45,19 @@ class TelaInicial:
 class TelaDoador:
     def __init__(self, root):
         self.root = root
-        self.root.geometry("1280x720")
-        self.root.configure(bg="white")
-        self.root.title("Hematocare - Doador")
+        customtkinter.set_appearance_mode("System")
+        self.root.geometry("700x500")
+        self.root.title("Doador")
 
         # Configurar peso das linhas e colunas
         for i in range(12):
             self.root.grid_rowconfigure(i, weight=1)
         for i in range(2):
             self.root.grid_columnconfigure(i, weight=1)
-
+        
         self.result_label = customtkinter.CTkLabel(root, text="")
         self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
-
+        
        
 
         self.label1 = customtkinter.CTkLabel(root, text="Digite o CPF:")
@@ -126,7 +127,17 @@ class TelaDoador:
 
         self.button5 = customtkinter.CTkButton(root, text="Consultar Doador", command=self.consultar_doador)
         self.button5.grid(row=14, column=0, columnspan=2)
+    
+    def abrir_tela_consulta_doador(self, doador_info):
+        root_resultado = customtkinter.CTk()
+        root_resultado.geometry("700x500")
+        root_resultado.title("Resultado da Consulta")
 
+        resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=("Century Gothic bold", 24))
+        resultado_label.pack(padx=50, pady=70)
+
+        root_resultado.mainloop()
+    
 
 
     def register_doador(self):
@@ -216,10 +227,10 @@ class TelaDoador:
                 doador_info += f"CPF: {row[0]}\nNome: {row[1]}\nIdade: {row[2]}\nE-mail: {row[3]}\n" \
                                f"Logradouro: {row[4]}\nNúmero: {row[5]}\nBairro: {row[6]}\nCidade: {row[7]}\n" \
                                f"CEP: {row[8]}\nTipo Sanguíneo: {row[9]}"
-            self.result_label.config(text=doador_info)
+            self.abrir_tela_consulta_doador(doador_info)
             print(doador_info)  # Exibir no terminal
         else:
-            self.result_label.config(text="Doador não encontrado")
+            self.result_label.configure(text="Doador não encontrado")
             print("Doador não encontrado")  # Exibir no terminal
 
 class TelaBolsaSangue:
