@@ -119,15 +119,13 @@ class TelaDoador:
         
 
         self.button1 = customtkinter.CTkButton(root, text="Registrar Novo Doador", command=self.register_doador)
-        self.button1.grid(row=12, column=0, columnspan=2)
-
+        self.button1.grid(row=12, column=0, padx=10, pady=10)
 
         self.button4 = customtkinter.CTkButton(root, text="Remover Doador", command=self.remove_doador)
-        self.button4.grid(row=13, column=0, columnspan=2)
-
+        self.button4.grid(row=12, column=1, padx=10, pady=10)
+        
         self.button5 = customtkinter.CTkButton(root, text="Consultar Doador", command=self.consultar_doador)
-        self.button5.grid(row=14, column=0, columnspan=2)
-    
+        self.button5.grid(row=12, column=0, columnspan=2, padx=10, pady=10)    
     def abrir_tela_consulta_doador(self, doador_info):
         root_resultado = customtkinter.CTk()
         root_resultado.geometry("700x500")
