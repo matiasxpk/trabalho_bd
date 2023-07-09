@@ -119,21 +119,26 @@ class TelaDoador:
         
 
         self.button1 = customtkinter.CTkButton(root, text="Registrar Novo Doador", command=self.register_doador)
-        self.button1.grid(row=12, column=0, padx=10, pady=10)
+        self.button1.grid(row=13, column=0, padx=10, pady=10)
 
         self.button4 = customtkinter.CTkButton(root, text="Remover Doador", command=self.remove_doador)
-        self.button4.grid(row=12, column=1, padx=10, pady=10)
+        self.button4.grid(row=13, column=1, padx=10, pady=10)
         
         self.button5 = customtkinter.CTkButton(root, text="Consultar Doador", command=self.consultar_doador)
-        self.button5.grid(row=12, column=0, columnspan=2, padx=10, pady=10)    
+        self.button5.grid(row=13, column=0, columnspan=2, padx=10, pady=10)  
+          
     def abrir_tela_consulta_doador(self, doador_info):
+
         root_resultado = customtkinter.CTk()
         root_resultado.geometry("700x500")
         root_resultado.title("Resultado da Consulta")
 
-        resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=("Century Gothic bold", 24))
-        resultado_label.pack(padx=50, pady=70)
-
+        if doador_info:
+            resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=("Century Gothic bold", 24))
+            resultado_label.pack(padx=50, pady=70)
+        else:
+            resultado_label = customtkinter.CTkLabel(root_resultado, text="Doador não encontrado", font=("Century Gothic bold", 24), text_color="red")
+            resultado_label.pack(padx=50, pady=70)
         root_resultado.mainloop()
     
 
@@ -222,14 +227,14 @@ class TelaDoador:
         if len(results) > 0:
             doador_info = ""
             for row in results:
-                doador_info += f"CPF: {row[0]}\nNome: {row[1]}\nIdade: {row[2]}\nE-mail: {row[3]}\n" \
-                               f"Logradouro: {row[4]}\nNúmero: {row[5]}\nBairro: {row[6]}\nCidade: {row[7]}\n" \
-                               f"CEP: {row[8]}\nTipo Sanguíneo: {row[9]}"
-            self.abrir_tela_consulta_doador(doador_info)
-            print(doador_info)  # Exibir no terminal
+                doador_info += f"CPF: {row[0]}\n\nNome: {row[1]}\n\nIdade: {row[2]}\n\nE-mail: {row[3]}\n\n" \
+                               f"Logradouro: {row[4]}\n\nNúmero: {row[5]}\n\nBairro: {row[6]}\n\nCidade: {row[7]}\n\n" \
+                               f"CEP: {row[8]}\n\nTipo Sanguíneo: {row[9]}"
         else:
-            self.result_label.configure(text="Doador não encontrado")
-            print("Doador não encontrado")  # Exibir no terminal
+            doador_info = None
+
+        self.abrir_tela_consulta_doador(doador_info)
+        print(doador_info)  # Exibir no terminal
 
 class TelaBolsaSangue:
     def __init__(self, root):
