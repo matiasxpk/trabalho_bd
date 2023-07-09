@@ -1,6 +1,5 @@
 import psycopg2
-import tkinter as tk
-
+import customtkinter
 # Estabelecer a conexão com o banco de dados
 conn = psycopg2.connect(
     host="localhost",
@@ -15,33 +14,30 @@ cur = conn.cursor()
 class TelaInicial:
     def __init__(self, root):
         self.root = root
-        self.root.geometry("1280x720")
-        self.root.configure(bg="white")
+        customtkinter.set_appearance_mode("dark")
+        customtkinter.set_default_color_theme("dark-blue")
+        self.root.geometry("500x300")
         self.root.title("Escolha")
 
-        # Configurar peso das linhas e colunas
-        self.root.grid_rowconfigure(0, weight=1)
-        self.root.grid_rowconfigure(1, weight=1)
-        self.root.grid_columnconfigure(0, weight=1)
 
-        self.label = tk.Label(root, text="Escolha uma opção:", width=20)
-        self.label.grid(row=0, column=0, pady=20)
+        self.label = customtkinter.CTkLabel(root, text="Escolha uma opção:", width=20)
+        self.label.pack(padx=10, pady=10)
 
-        self.button_doador = tk.Button(root, text="Doador", command=self.abrir_tela_doador, width=15)
-        self.button_doador.grid(row=1, column=0, pady=10)
+        self.button_doador = customtkinter.CTkButton(root, text="Doador", command=self.abrir_tela_doador)
+        self.button_doador.pack(padx=10, pady=10)
 
-        self.button_bolsa = tk.Button(root, text="Bolsa de Sangue", command=self.abrir_tela_bolsa, width=15)
-        self.button_bolsa.grid(row=2, column=0, pady=10)
+        self.button_bolsa = customtkinter.CTkButton(root, text="Bolsa de Sangue", command=self.abrir_tela_bolsa)
+        self.button_bolsa.pack(padx=10, pady=10)
 
     def abrir_tela_doador(self):
         self.root.destroy()  # Fechar a tela inicial
-        root = tk.Tk()
+        root = customtkinter.CTk()
         TelaDoador(root)
         root.mainloop()
 
     def abrir_tela_bolsa(self):
         self.root.destroy()  # Fechar a tela inicial
-        root = tk.Tk()
+        root = customtkinter.CTk()
         TelaBolsaSangue(root)
         root.mainloop()
 
@@ -58,84 +54,77 @@ class TelaDoador:
         for i in range(2):
             self.root.grid_columnconfigure(i, weight=1)
 
-        self.result_label = tk.Label(root, text="")
+        self.result_label = customtkinter.CTkLabel(root, text="")
         self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
 
        
 
-        self.label1 = tk.Label(root, text="Digite o CPF:")
+        self.label1 = customtkinter.CTkLabel(root, text="Digite o CPF:")
         self.label1.grid(row=1, column=0, sticky="e")
-        self.entry1 = tk.Entry(root)
+        self.entry1 = customtkinter.CTkEntry(root)
         self.entry1.grid(row=1, column=1, padx=10)
 
-        self.label2 = tk.Label(root, text="Digite o nome:")
+        self.label2 = customtkinter.CTkLabel(root, text="Digite o nome:")
         self.label2.grid(row=2, column=0, sticky="e")
-        self.entry2 = tk.Entry(root)
+        self.entry2 = customtkinter.CTkEntry(root)
         self.entry2.grid(row=2, column=1, padx=10)
 
-        self.label3 = tk.Label(root, text="Digite a idade:")
+        self.label3 = customtkinter.CTkLabel(root, text="Digite a idade:")
         self.label3.grid(row=3, column=0, sticky="e")
-        self.entry3 = tk.Entry(root)
+        self.entry3 = customtkinter.CTkEntry(root)
         self.entry3.grid(row=3, column=1, padx=10)
 
-        self.label4 = tk.Label(root, text="Digite o E-mail:")
+        self.label4 = customtkinter.CTkLabel(root, text="Digite o E-mail:")
         self.label4.grid(row=4, column=0, sticky="e")
-        self.entry4 = tk.Entry(root)
+        self.entry4 = customtkinter.CTkEntry(root)
         self.entry4.grid(row=4, column=1, padx=10)
 
 
-        self.label5 = tk.Label(root, text="Digite o logradouro:")
+        self.label5 = customtkinter.CTkLabel(root, text="Digite o logradouro:")
         self.label5.grid(row=5, column=0, sticky="e")
-        self.entry5 = tk.Entry(root)
+        self.entry5 = customtkinter.CTkEntry(root)
         self.entry5.grid(row=5, column=1, padx=10)
 
-        self.label6 = tk.Label(root, text="Digite o número:")
+        self.label6 = customtkinter.CTkLabel(root, text="Digite o número:")
         self.label6.grid(row=6, column=0, sticky="e")
-        self.entry6 = tk.Entry(root)
+        self.entry6 = customtkinter.CTkEntry(root)
         self.entry6.grid(row=6, column=1, padx=10)
 
-        self.label7 = tk.Label(root, text="Digite o bairro:")
+        self.label7 = customtkinter.CTkLabel(root, text="Digite o bairro:")
         self.label7.grid(row=7, column=0, sticky="e")
-        self.entry7 = tk.Entry(root)
+        self.entry7 = customtkinter.CTkEntry(root)
         self.entry7.grid(row=7, column=1, padx=10)
 
-        self.label8 = tk.Label(root, text="Digite a cidade:")
+        self.label8 = customtkinter.CTkLabel(root, text="Digite a cidade:")
         self.label8.grid(row=8, column=0, sticky="e")
-        self.entry8 = tk.Entry(root)
+        self.entry8 = customtkinter.CTkEntry(root)
         self.entry8.grid(row=8, column=1, padx=10)
 
-        self.label9 = tk.Label(root, text="Digite o CEP:")
+        self.label9 = customtkinter.CTkLabel(root, text="Digite o CEP:")
         self.label9.grid(row=9, column=0, sticky="e")
-        self.entry9 = tk.Entry(root)
+        self.entry9 = customtkinter.CTkEntry(root)
         self.entry9.grid(row=9, column=1, padx=10)
 
-        self.label10 = tk.Label(root, text="Digite o tipo sanguineo:")
+        self.label10 = customtkinter.CTkLabel(root, text="Digite o tipo sanguineo:")
         self.label10.grid(row=10, column=0, sticky="e")
-        self.entry10 = tk.Entry(root)
+        self.entry10 = customtkinter.CTkEntry(root)
         self.entry10.grid(row=10, column=1, padx=10)
 
-        self.label11 = tk.Label(root, text="Digite o telefone:")
+        self.label11 = customtkinter.CTkLabel(root, text="Digite o telefone:")
         self.label11.grid(row=11, column=0, sticky="e")
-        self.entry11 = tk.Entry(root)
+        self.entry11 = customtkinter.CTkEntry(root)
         self.entry11.grid(row=11, column=1, padx=10)
 
         
 
-        self.button1 = tk.Button(root, text="Registrar Novo Doador", command=self.register_doador)
+        self.button1 = customtkinter.CTkButton(root, text="Registrar Novo Doador", command=self.register_doador)
         self.button1.grid(row=12, column=0, columnspan=2)
 
 
-
-        """self.button2 = tk.Button(root, text="Registrar Hospital", command=self.register_hospital)
-        self.button2.grid(row=12, column=0, columnspan=2)
-
-        self.button3 = tk.Button(root, text="Registrar Funcionário", command=self.register_funcionario)
-        self.button3.grid(row=13, column=0, columnspan=2)"""
-
-        self.button4 = tk.Button(root, text="Remover Doador", command=self.remove_doador)
+        self.button4 = customtkinter.CTkButton(root, text="Remover Doador", command=self.remove_doador)
         self.button4.grid(row=13, column=0, columnspan=2)
 
-        self.button5 = tk.Button(root, text="Consultar Doador", command=self.consultar_doador)
+        self.button5 = customtkinter.CTkButton(root, text="Consultar Doador", command=self.consultar_doador)
         self.button5.grid(row=14, column=0, columnspan=2)
 
 
@@ -246,38 +235,38 @@ class TelaBolsaSangue:
         for i in range(2):
             self.root.grid_columnconfigure(i, weight=1)
 
-        self.result_label = tk.Label(root, text="")
+        self.result_label = customtkinter.CTkLabel(root, text="")
         self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
 
-        self.label11 = tk.Label(root, text="Digite o código da bolsa de sangue:")
+        self.label11 = customtkinter.CTkLabel(root, text="Digite o código da bolsa de sangue:")
         self.label11.grid(row=1, column=0, sticky="e")
-        self.entry11 = tk.Entry(root)
+        self.entry11 = customtkinter.CTkEntry(root)
         self.entry11.grid(row=1, column=1, padx=10)
 
-        self.label11 = tk.Label(root, text="Digite o cpf:")
+        self.label11 = customtkinter.CTkLabel(root, text="Digite o cpf:")
         self.label11.grid(row=2, column=0, sticky="e")
-        self.entry11 = tk.Entry(root)
+        self.entry11 = customtkinter.CTkEntry(root)
         self.entry11.grid(row=2, column=1, padx=10)
 
-        self.label11 = tk.Label(root, text="Digite a data:")
+        self.label11 = customtkinter.CTkLabel(root, text="Digite a data:")
         self.label11.grid(row=3, column=0, sticky="e")
-        self.entry11 = tk.Entry(root)
+        self.entry11 = customtkinter.CTkEntry(root)
         self.entry11.grid(row=3, column=1, padx=10)
 
-        self.label11 = tk.Label(root, text="Digite o CNPJ:")
+        self.label11 = customtkinter.CTkLabel(root, text="Digite o CNPJ:")
         self.label11.grid(row=4, column=0, sticky="e")
-        self.entry11 = tk.Entry(root)
+        self.entry11 = customtkinter.CTkEntry(root)
         self.entry11.grid(row=4, column=1, padx=10)
 
-        self.button1 = tk.Button(root, text="Registrar Bolsa de Sangue", command=self.register_bolsa_de_sangue)
+        self.button1 = customtkinter.CTkButton(root, text="Registrar Bolsa de Sangue", command=self.register_bolsa_de_sangue)
         self.button1.grid(row=5, column=0, columnspan=2)
 
 
 
-        """self.button2 = tk.Button(root, text="Registrar Hospital", command=self.register_hospital)
+        """self.button2 = customtkinter.CTkButton(root, text="Registrar Hospital", command=self.register_hospital)
         self.button2.grid(row=12, column=0, columnspan=2)
 
-        self.button3 = tk.Button(root, text="Registrar Funcionário", command=self.register_funcionario)
+        self.button3 = customtkinter.CTkButton(root, text="Registrar Funcionário", command=self.register_funcionario)
         self.button3.grid(row=13, column=0, columnspan=2)"""
 
     def register_bolsa_de_sangue(self):
@@ -298,7 +287,7 @@ class TelaBolsaSangue:
 
 
 
-root = tk.Tk()
+root = customtkinter.CTk()
 TelaInicial(root)
 root.mainloop()
 
