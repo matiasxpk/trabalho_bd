@@ -4,9 +4,9 @@ import customtkinter
 # Estabelecer a conexão com o banco de dados
 conn = psycopg2.connect(
     host="localhost",
-    database="doacaoDeSangue",
+    database="DoacaoDeSangue",
     user="postgres",
-    password="2612"
+    password="jogo1234"
 )
 
 cur = conn.cursor()
@@ -18,6 +18,7 @@ class TelaInicial:
         customtkinter.set_appearance_mode("System")
         self.root.geometry("700x500")
         self.root.title("Sistem de Doação de Sangue")
+        
 
         self.title = customtkinter.CTkLabel(root, text="Hematocare", font=("Century Gothic bold", 24), text_color="#fff")
         self.spam = customtkinter.CTkLabel(root, text="Escolha uma opção:", font=("Century Gothic bold", 16), text_color="#fff" )
@@ -62,12 +63,11 @@ class TelaDoador:
         self.result_label = customtkinter.CTkLabel(root, text="")
         self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
         
-       
-
         self.label1 = customtkinter.CTkLabel(root, text="Digite o CPF:")
         self.label1.grid(row=1, column=0, sticky="e")
         self.entry1 = customtkinter.CTkEntry(root)
         self.entry1.grid(row=1, column=1, padx=10)
+        
 
         self.label2 = customtkinter.CTkLabel(root, text="Digite o nome:")
         self.label2.grid(row=2, column=0, sticky="e")
@@ -119,7 +119,6 @@ class TelaDoador:
         self.label11.grid(row=11, column=0, sticky="e")
         self.entry11 = customtkinter.CTkEntry(root)
         self.entry11.grid(row=11, column=1, padx=10)
-
         
         self.button1 = customtkinter.CTkButton(root, text="Registrar Novo Doador", command=self.register_doador)
         self.button1.grid(row=13, column=0, padx=10, pady=10)
@@ -149,10 +148,9 @@ class TelaDoador:
             resultado_label = customtkinter.CTkLabel(root_resultado, text="Doador não encontrado", font=("Century Gothic bold", 24), text_color="red")
             resultado_label.pack(padx=50, pady=70)
         root_resultado.mainloop()
-    
-
 
     def register_doador(self):
+
         cpf = self.entry1.get()
         nome = self.entry2.get()
         idade = self.entry3.get()
@@ -163,13 +161,13 @@ class TelaDoador:
         cidade = self.entry8.get()
         cep = self.entry9.get()
         tipo_sanguineo = self.entry10.get()
-        telefone = self.entry13.get()
+        telefone = self.entry11.get()
 
         # Executar instrução SQL para inserir os dados no banco de dados
         cur.execute("INSERT INTO doador (cpf, nome, idade, email, logradouro, numero, bairro, cidade, cep, tipo_sanguineo) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                     (cpf, nome, idade, email, logradouro, numero, bairro, cidade, cep, tipo_sanguineo))
         cur.execute("INSERT INTO telefone_doador (cpf, numero) VALUES (%s, %s)",
-                    (cpf, numero))
+                    (cpf, telefone))
         conn.commit()
 
         print("CPF:", cpf)
@@ -183,9 +181,14 @@ class TelaDoador:
         print("CEP:", cep)
         print("Tipo Sanguíneo:", tipo_sanguineo)
 
-
     def remove_doador(self):
-        cpf = self.entry12.get()
+
+        self.label1 = customtkinter.CTkLabel(root, text="Digite o CPF:")
+        self.label1.grid(row=1, column=0, sticky="e")
+        self.entry1 = customtkinter.CTkEntry(root)
+        self.entry1.grid(row=1, column=1, padx=10)
+
+        cpf = self.entry1.get()
 
         try:
             cur = conn.cursor()
@@ -218,13 +221,6 @@ class TelaDoador:
         finally:
             # Fechar o cursor
             cur.close()
-
-
-    def register_hospital(self):
-        print("Registrar Hospital")
-
-    def register_funcionario(self):
-        print("Registrar Funcionário")
 
     def consultar_doador(self):
         cpf = self.entry1.get()
@@ -269,25 +265,30 @@ class TelaBolsaSangue:
         self.label11.grid(row=1, column=0, sticky="e")
         self.entry11 = customtkinter.CTkEntry(root)
         self.entry11.grid(row=1, column=1, padx=10)
+ 
+        self.label12 = customtkinter.CTkLabel(root, text="Digite o cpf:")
+        self.label12.grid(row=2, column=0, sticky="e")
+        self.entry12 = customtkinter.CTkEntry(root)
+        self.entry12.grid(row=2, column=1, padx=10)
 
-        self.label11 = customtkinter.CTkLabel(root, text="Digite o cpf:")
-        self.label11.grid(row=2, column=0, sticky="e")
-        self.entry11 = customtkinter.CTkEntry(root)
-        self.entry11.grid(row=2, column=1, padx=10)
+        self.label13 = customtkinter.CTkLabel(root, text="Digite a data:")
+        self.label13.grid(row=3, column=0, sticky="e")
+        self.entry13 = customtkinter.CTkEntry(root)
+        self.entry13.grid(row=3, column=1, padx=10)
 
-        self.label11 = customtkinter.CTkLabel(root, text="Digite a data:")
-        self.label11.grid(row=3, column=0, sticky="e")
-        self.entry11 = customtkinter.CTkEntry(root)
-        self.entry11.grid(row=3, column=1, padx=10)
-
-        self.label11 = customtkinter.CTkLabel(root, text="Digite o CNPJ:")
-        self.label11.grid(row=4, column=0, sticky="e")
-        self.entry11 = customtkinter.CTkEntry(root)
-        self.entry11.grid(row=4, column=1, padx=10)
+        self.label14 = customtkinter.CTkLabel(root, text="Digite o CNPJ:")
+        self.label14.grid(row=4, column=0, sticky="e")
+        self.entry14 = customtkinter.CTkEntry(root)
+        self.entry14.grid(row=4, column=1, padx=10)
 
         self.button1 = customtkinter.CTkButton(root, text="Registrar Bolsa de Sangue", command=self.register_bolsa_de_sangue)
-        self.button1.grid(row=5, column=0, columnspan=2)
+        self.button1.grid(row=13, column=0, padx=10, pady=10)
 
+        self.button2 = customtkinter.CTkButton(root, text="Remover Bolsa de Sangue", command=self.remover_Bolsa_de_Sangue)
+        self.button2.grid(row=13, column=1, padx=10, pady=10)
+        
+        self.button3 = customtkinter.CTkButton(root, text="Consultar Bolsa de Sangue", command=self.consultar_Bolsa_de_Sangue)
+        self.button3.grid(row=13, column=0, columnspan=2, padx=10, pady=10)  
 
     def voltar_tela_inicial(self):
         self.root.destroy()  # Fechar a tela atual
@@ -296,10 +297,11 @@ class TelaBolsaSangue:
         root.mainloop()
 
     def register_bolsa_de_sangue(self):
-        codigo = self.entry1.get()
-        cpf = self.entry2.get()
-        data = self.entry3.get()
-        cnpj = self.entry4.get()
+
+        codigo = self.entry11.get()
+        cpf = self.entry12.get()
+        data = self.entry13.get()
+        cnpj = self.entry14.get()
 
         # Executar instrução SQL para inserir os dados no banco de dados
         cur.execute("INSERT INTO bolsa_de_sangue (codigo, cpf, data, cnpj) VALUES (%s, %s, %s, %s)",
@@ -311,7 +313,61 @@ class TelaBolsaSangue:
         print("Data:", data)
         print("CNPJ:", cnpj)
 
+    def remover_Bolsa_de_Sangue(self):
 
+        cpf = self.entry12.get()
+
+        try:
+            cur = conn.cursor()
+
+            # Obter os códigos da bolsa de sangue associados ao CPF do doador
+            
+            cur.execute("DELETE FROM bolsa_de_sangue WHERE cpf = %s", (cpf,))
+
+            # Confirmar a transação
+            conn.commit()
+
+            print(f"Bolsa de sangue do portador do CPF {cpf} removido com sucesso.")
+        except Exception as e:
+            # Reverter a transação em caso de erro
+            conn.rollback()
+            print(f"Erro ao remover o doador: {str(e)}")
+        finally:
+            # Fechar o cursor
+            cur.close()
+
+    def abrir_tela_consulta_bolsa(self, doador_info):
+
+        root_resultado = customtkinter.CTk()
+        root_resultado.geometry("700x500")
+        root_resultado.title("Resultado da Consulta")
+
+        if doador_info:
+            resultado_label = customtkinter.CTkLabel(root_resultado, text="doador_info", font=("Century Gothic bold", 14))
+            resultado_label.pack(padx=50, pady=70)
+        else:
+            resultado_label = customtkinter.CTkLabel(root_resultado, text="Doador não encontrado", font=("Century Gothic bold", 24), text_color="red")
+            resultado_label.pack(padx=50, pady=70)
+        root_resultado.mainloop()
+
+    def consultar_Bolsa_de_Sangue(self):
+
+        cpf = self.entry12.get()
+
+        # Executar instrução SQL para consultar o doador no banco de dados
+        cur.execute("SELECT * FROM bolsa_de_sangue WHERE cpf = %s", (cpf,))
+        results = cur.fetchall()
+
+        if len(results) > 0:
+            doador_info = ""
+            for row in results:
+                doador_info += f"CPF: {row[0]}\n\Código: {row[1]}\n\nData: {row[2]}\n\nCNPJ: {row[3]}\n\n" 
+                
+        else:
+            doador_info = None
+
+        self.abrir_tela_consulta_bolsa(doador_info)
+        print(doador_info)  # Exibir no terminal # Exibir no terminal
 
 root = customtkinter.CTk()
 TelaInicial(root)
