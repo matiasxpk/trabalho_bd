@@ -263,30 +263,11 @@ class TelaBolsaSangue:
         self.result_label = customtkinter.CTkLabel(root, text="")
         self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
 
-        self.label11 = customtkinter.CTkLabel(root, text="Digite o código da bolsa de sangue:")
-        self.label11.grid(row=1, column=0, sticky="e")
-        self.entry11 = customtkinter.CTkEntry(root)
-        self.entry11.grid(row=1, column=1, padx=10)
- 
-        self.label12 = customtkinter.CTkLabel(root, text="Digite o cpf:")
-        self.label12.grid(row=2, column=0, sticky="e")
-        self.entry12 = customtkinter.CTkEntry(root)
-        self.entry12.grid(row=2, column=1, padx=10)
-
-        self.label13 = customtkinter.CTkLabel(root, text="Digite a data:")
-        self.label13.grid(row=3, column=0, sticky="e")
-        self.entry13 = customtkinter.CTkEntry(root)
-        self.entry13.grid(row=3, column=1, padx=10)
-
-        self.label14 = customtkinter.CTkLabel(root, text="Digite o CNPJ:")
-        self.label14.grid(row=4, column=0, sticky="e")
-        self.entry14 = customtkinter.CTkEntry(root)
-        self.entry14.grid(row=4, column=1, padx=10)
-
-        self.button1 = customtkinter.CTkButton(root, text="Registrar Bolsa de Sangue", command=self.register_bolsa_de_sangue)
+       
+        self.button1 = customtkinter.CTkButton(root, text="Registrar Bolsa de Sangue", command=self.abrir_tela_bolsa_register)
         self.button1.grid(row=13, column=0, padx=10, pady=10)
 
-        self.button2 = customtkinter.CTkButton(root, text="Remover Bolsa de Sangue", command=self.remover_Bolsa_de_Sangue)
+        self.button2 = customtkinter.CTkButton(root, text="Remover Bolsa de Sangue", command=self.abrir_tela_bolsa_remove)
         self.button2.grid(row=13, column=1, padx=10, pady=10)
         
         self.button3 = customtkinter.CTkButton(root, text="Consultar Bolsa de Sangue", command=self.abrir_tela_bolsa_consulta)
@@ -307,58 +288,15 @@ class TelaBolsaSangue:
     def abrir_tela_bolsa_register(self):
         self.root.destroy()  # Fechar a tela inicial
         root = customtkinter.CTk()
-        consultaBolsa(root)
+        registerBolsa(root)
         root.mainloop()
 
     def abrir_tela_bolsa_remove(self):
         self.root.destroy()  # Fechar a tela inicial
         root = customtkinter.CTk()
-        consultaBolsa(root)
+        removerBolsa(root)
         root.mainloop()
 
-    def register_bolsa_de_sangue(self):
-
-        
-
-        codigo = self.entry11.get()
-        cpf = self.entry12.get()
-        data = self.entry13.get()
-        cnpj = self.entry14.get()
-
-        # Executar instrução SQL para inserir os dados no banco de dados
-        cur.execute("INSERT INTO bolsa_de_sangue (codigo, cpf, data, cnpj) VALUES (%s, %s, %s, %s)",
-                    (codigo, cpf, data, cnpj))
-        conn.commit()
-
-        print("Código:", codigo)
-        print("CPF:", cpf)
-        print("Data:", data)
-        print("CNPJ:", cnpj)
-
-        root_resultado.mainloop
-
-    def remover_Bolsa_de_Sangue(self):
-
-        cpf = self.entry12.get()
-
-        try:
-            cur = conn.cursor()
-
-            # Obter os códigos da bolsa de sangue associados ao CPF do doador
-            
-            cur.execute("DELETE FROM bolsa_de_sangue WHERE cpf = %s", (cpf,))
-
-            # Confirmar a transação
-            conn.commit()
-
-            print(f"Bolsa de sangue do portador do CPF {cpf} removido com sucesso.")
-        except Exception as e:
-            # Reverter a transação em caso de erro
-            conn.rollback()
-            print(f"Erro ao remover o doador: {str(e)}")
-        finally:
-            # Fechar o cursor
-            cur.close()
 
  # Exibir no terminal
 
@@ -535,18 +473,30 @@ class registerBolsa:
         self.button1 = customtkinter.CTkButton(root, text="Registrar Bolsa de Sangue", command=self.register_bolsa_de_sangue)
         self.button1.grid(row=13, column=0, padx=10, pady=10)
 
-        self.button2 = customtkinter.CTkButton(root, text="Remover Bolsa de Sangue", command=self.remover_Bolsa_de_Sangue)
-        self.button2.grid(row=13, column=1, padx=10, pady=10)
-        
-        self.button3 = customtkinter.CTkButton(root, text="Consultar Bolsa de Sangue", command=self.abrir_tela_bolsa_consulta)
-        self.button3.grid(row=13, column=0, columnspan=2, padx=10, pady=10)  
-
     def voltar_tela_inicial(self):
         self.root.destroy()  # Fechar a tela atual
         root = customtkinter.CTk()
         TelaBolsaSangue(root)
         root.mainloop()
 
+    def register_bolsa_de_sangue(self):
+
+        
+
+        codigo = self.entry11.get()
+        cpf = self.entry12.get()
+        data = self.entry13.get()
+        cnpj = self.entry14.get()
+
+        # Executar instrução SQL para inserir os dados no banco de dados
+        cur.execute("INSERT INTO bolsa_de_sangue (codigo, cpf, data, cnpj) VALUES (%s, %s, %s, %s)",
+                    (codigo, cpf, data, cnpj))
+        conn.commit()
+
+        print("Código:", codigo)
+        print("CPF:", cpf)
+        print("Data:", data)
+        print("CNPJ:", cnpj)
 
 root = customtkinter.CTk()
 TelaInicial(root)
