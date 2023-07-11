@@ -1,6 +1,8 @@
 import psycopg2
 import tkinter as tk
 import customtkinter
+from CTkMessagebox import CTkMessagebox
+import customtkinter
 # Estabelecer a conexão com o banco de dados
 conn = psycopg2.connect(
     host="localhost",
@@ -211,6 +213,12 @@ class registerDoador:
         print("Cidade:", cidade)
         print("CEP:", cep)
         print("Tipo Sanguíneo:", tipo_sanguineo)
+        self.show_checkmark()
+
+    def show_checkmark(self):
+    # Show some positive message with the checkmark icon
+        CTkMessagebox(title="",message="O usuário foi cadastrado com sucesso",icon="check", option_1="OK!")
+        CTkMessagebox.show()
 
 class removerDoador:
     def __init__(self, root):
@@ -282,6 +290,12 @@ class removerDoador:
         finally:
             # Fechar o cursor
             cur.close()
+        self.show_checkmark()
+
+    def show_checkmark(self):
+    # Show some positive message with the checkmark icon
+        CTkMessagebox(title="",message="O usuário foi removido",icon="check", option_1="OK!")
+        CTkMessagebox.show()
  
 class consultDoador:
     def __init__(self, root):
@@ -327,10 +341,10 @@ class consultDoador:
             resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=("Century Gothic bold", 14))
             resultado_label.pack(padx=50, pady=70)
         else:
-            resultado_label = customtkinter.CTkLabel(root_resultado, text="Doador não encontrado", font=("Century Gothic bold", 24), text_color="red")
-            resultado_label.pack(padx=50, pady=70)
+            messagebox =CTkMessagebox(title="",message="O usuário não foi encontrado",icon="warning", option_1="OK!")
+            messagebox.show()
         root_resultado.mainloop()
-
+        
 
     def consultar_doador(self):
         cpf = self.entry1.get()
@@ -475,8 +489,8 @@ class consultaBolsa:
             resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=("Century Gothic bold", 14))
             resultado_label.pack(padx=50, pady=70)
         else:
-            resultado_label = customtkinter.CTkLabel(root_resultado, text="Doador não encontrado", font=("Century Gothic bold", 24), text_color="red")
-            resultado_label.pack(padx=50, pady=70)
+            CTkMessagebox(title="",message="Bolsa de sangue não foi encontrado",icon="cancel", option_1="OK!")
+            CTkMessagebox.show()
         root_resultado.mainloop()
 
 
@@ -536,6 +550,12 @@ class removerBolsa:
         finally:
             # Fechar o cursor
             cur.close()
+        self.show_checkmark()
+
+    def show_checkmark(self):
+    # Show some positive message with the checkmark icon
+        CTkMessagebox(title="",message="Bolsa de sangue foi removido",icon="check", option_1="OK!")
+        CTkMessagebox.show()
 
 
 
@@ -606,6 +626,12 @@ class registerBolsa:
         print("CPF:", cpf)
         print("Data:", data)
         print("CNPJ:", cnpj)
+        self.show_checkmark()
+
+    def show_checkmark(self):
+    # Show some positive message with the checkmark icon
+        CTkMessagebox(title="",message="Bolsa de sangue foi cadastrado com sucesso",icon="check", option_1="OK!")
+        CTkMessagebox.show()
 
 root = customtkinter.CTk()
 TelaInicial(root)
