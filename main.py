@@ -60,6 +60,57 @@ class TelaDoador:
         for i in range(2):
             self.root.grid_columnconfigure(i, weight=1)
         
+        self.button1 = customtkinter.CTkButton(root, text="Registrar Novo Doador", command=self.abrir_tela_doador_register)
+        self.button1.grid(row=13, column=0, padx=10, pady=10)
+
+        self.button4 = customtkinter.CTkButton(root, text="Remover Doador", command=self.abrir_tela_bolsa_doador_remover)
+        self.button4.grid(row=13, column=1, padx=10, pady=10)
+        
+        self.button5 = customtkinter.CTkButton(root, text="Consultar Doador", command=self.abrir_tela_bolsa_doador_consultar)
+        self.button5.grid(row=13, column=0, columnspan=2, padx=10, pady=10)  
+    
+    def voltar_tela_inicial(self):
+        self.root.destroy()  # Fechar a tela atual
+        root = customtkinter.CTk()
+        TelaInicial(root)
+        root.mainloop()
+
+    def abrir_tela_doador_register(self):
+        self.root.destroy()  # Fechar a tela inicial
+        root = customtkinter.CTk()
+        registerDoador(root)
+        root.mainloop()
+
+    def abrir_tela_bolsa_doador_remover(self):
+        self.root.destroy()  # Fechar a tela inicial
+        root = customtkinter.CTk()
+        removerDoador(root)
+        root.mainloop()
+
+    def abrir_tela_bolsa_doador_consultar(self):
+        self.root.destroy()  # Fechar a tela inicial
+        root = customtkinter.CTk()
+        consultDoador(root)
+        root.mainloop()
+
+
+class registerDoador:
+    def __init__(self, root):
+        self.root = root
+        customtkinter.set_appearance_mode("System")
+        self.root.geometry("700x500")
+        self.root.title("Doador")
+
+        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_doador)
+        self.button_voltar.grid(row=14, column=0, columnspan=2, padx=10, pady=10)
+
+
+        # Configurar peso das linhas e colunas
+        for i in range(12):
+            self.root.grid_rowconfigure(i, weight=1)
+        for i in range(2):
+            self.root.grid_columnconfigure(i, weight=1)
+        
         self.result_label = customtkinter.CTkLabel(root, text="")
         self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
         
@@ -123,33 +174,11 @@ class TelaDoador:
         self.button1 = customtkinter.CTkButton(root, text="Registrar Novo Doador", command=self.register_doador)
         self.button1.grid(row=13, column=0, padx=10, pady=10)
 
-        self.button4 = customtkinter.CTkButton(root, text="Remover Doador", command=self.remove_doador)
-        self.button4.grid(row=13, column=1, padx=10, pady=10)
-        
-        self.button5 = customtkinter.CTkButton(root, text="Consultar Doador", command=self.consultar_doador)
-        self.button5.grid(row=13, column=0, columnspan=2, padx=10, pady=10)  
-    
-    def voltar_tela_inicial(self):
+    def voltar_tela_doador(self):
         self.root.destroy()  # Fechar a tela atual
         root = customtkinter.CTk()
-        TelaInicial(root)
+        TelaDoador(root)
         root.mainloop()
-
-    
-
-    def abrir_tela_consulta_doador(self, doador_info):
-
-        root_resultado = customtkinter.CTk()
-        root_resultado.geometry("700x500")
-        root_resultado.title("Resultado da Consulta")
-
-        if doador_info:
-            resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=("Century Gothic bold", 14))
-            resultado_label.pack(padx=50, pady=70)
-        else:
-            resultado_label = customtkinter.CTkLabel(root_resultado, text="Doador não encontrado", font=("Century Gothic bold", 24), text_color="red")
-            resultado_label.pack(padx=50, pady=70)
-        root_resultado.mainloop()
 
     def register_doador(self):
 
@@ -183,12 +212,42 @@ class TelaDoador:
         print("CEP:", cep)
         print("Tipo Sanguíneo:", tipo_sanguineo)
 
-    def remove_doador(self):
+class removerDoador:
+    def __init__(self, root):
+        self.root = root
+        customtkinter.set_appearance_mode("System")
+        self.root.geometry("700x500")
+        self.root.title("Doador")
 
+        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_doadro)
+        self.button_voltar.grid(row=14, column=0, columnspan=2, padx=10, pady=10)
+
+
+        # Configurar peso das linhas e colunas
+        for i in range(12):
+            self.root.grid_rowconfigure(i, weight=1)
+        for i in range(2):
+            self.root.grid_columnconfigure(i, weight=1)
+        
+        self.result_label = customtkinter.CTkLabel(root, text="")
+        self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
+        
         self.label1 = customtkinter.CTkLabel(root, text="Digite o CPF:")
         self.label1.grid(row=1, column=0, sticky="e")
         self.entry1 = customtkinter.CTkEntry(root)
         self.entry1.grid(row=1, column=1, padx=10)
+
+        self.button4 = customtkinter.CTkButton(root, text="Remover Doador", command=self.remove_doador)
+        self.button4.grid(row=13, column=1, padx=10, pady=10)
+    
+    def voltar_tela_doadro(self):
+        self.root.destroy()  # Fechar a tela atual
+        root = customtkinter.CTk()
+        TelaDoador(root)
+        root.mainloop()
+
+    def remove_doador(self):
+
 
         cpf = self.entry1.get()
 
@@ -223,6 +282,55 @@ class TelaDoador:
         finally:
             # Fechar o cursor
             cur.close()
+ 
+class consultDoador:
+    def __init__(self, root):
+        self.root = root
+        customtkinter.set_appearance_mode("System")
+        self.root.geometry("700x500")
+        self.root.title("Doador")
+
+        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_doadro)
+        self.button_voltar.grid(row=14, column=0, columnspan=2, padx=10, pady=10)
+
+
+        # Configurar peso das linhas e colunas
+        for i in range(12):
+            self.root.grid_rowconfigure(i, weight=1)
+        for i in range(2):
+            self.root.grid_columnconfigure(i, weight=1)
+        
+        self.result_label = customtkinter.CTkLabel(root, text="")
+        self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
+        
+        self.label1 = customtkinter.CTkLabel(root, text="Digite o CPF:")
+        self.label1.grid(row=1, column=0, sticky="e")
+        self.entry1 = customtkinter.CTkEntry(root)
+        self.entry1.grid(row=1, column=1, padx=10)
+        
+        self.button5 = customtkinter.CTkButton(root, text="Consultar Doador", command=self.consultar_doador)
+        self.button5.grid(row=13, column=0, columnspan=2, padx=10, pady=10)  
+    
+    def voltar_tela_doadro(self):
+        self.root.destroy()  # Fechar a tela atual
+        root = customtkinter.CTk()
+        TelaDoador(root)
+        root.mainloop()
+    
+    def abrir_tela_consulta_doador(self, doador_info):
+
+        root_resultado = customtkinter.CTk()
+        root_resultado.geometry("700x500")
+        root_resultado.title("Resultado da Consulta")
+
+        if doador_info:
+            resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=("Century Gothic bold", 14))
+            resultado_label.pack(padx=50, pady=70)
+        else:
+            resultado_label = customtkinter.CTkLabel(root_resultado, text="Doador não encontrado", font=("Century Gothic bold", 24), text_color="red")
+            resultado_label.pack(padx=50, pady=70)
+        root_resultado.mainloop()
+
 
     def consultar_doador(self):
         cpf = self.entry1.get()
@@ -243,6 +351,7 @@ class TelaDoador:
         self.abrir_tela_consulta_doador(doador_info)
         print(doador_info)  # Exibir no terminal # Exibir no terminal
 
+    
 class TelaBolsaSangue:
     def __init__(self, root):
         self.root = root
