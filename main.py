@@ -1,7 +1,9 @@
 import psycopg2
 import tkinter as tk
 import customtkinter
+import tkinter.messagebox as messagebox
 from CTkMessagebox import CTkMessagebox
+
 # Estabelecer a conexão com o banco de dados
 conn = psycopg2.connect(
     host="localhost",
@@ -346,17 +348,17 @@ class consultDoador:
         root.mainloop()
     
     def abrir_tela_consulta_doador(self, doador_info):
-
+        root_resultado = customtkinter.CTk()
+        root_resultado.geometry("700x500")
+        root_resultado.title("Resultado da Consulta")
         if doador_info:
-            root_resultado = customtkinter.CTk()
-            root_resultado.geometry("700x500")
-            root_resultado.title("Resultado da Consulta")
+            
             resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=("Century Gothic bold", 14))
             resultado_label.pack(padx=50, pady=70)
+            root_resultado.mainloop()
         else:
-            messagebox =CTkMessagebox(title="",message="O usuário não foi encontrado",icon="C:\Users\carlo\Documents\PROJETOS\trabalho_bd\icons\icons8-warning-48.png", option_1="OK!")
-            messagebox.show()
-        root_resultado.mainloop()
+            messagebox.showwarning(title="", message="Bolsa de sangue não foi encontrada")
+
 
     def consultar_doador(self):
         cpf = self.entry1.get()
@@ -638,10 +640,11 @@ class consultaBolsa:
         if doador_info:
             resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=("Century Gothic bold", 14))
             resultado_label.pack(padx=50, pady=70)
+            root_resultado.mainloop()
+
         else:
-            CTkMessagebox(title="",message="Bolsa de sangue não foi encontrado",icon="C:\Users\carlo\Documents\PROJETOS\trabalho_bd\icons\icons8-warning-48.png", option_1="OK!")
-            CTkMessagebox.show()
-        root_resultado.mainloop()
+            messagebox.showwarning(title="", message="Bolsa de sangue não foi encontrada")
+
 
 class removerBolsa:
     def __init__(self, root):
