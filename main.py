@@ -1,20 +1,15 @@
 import psycopg2
 import tkinter as tk
 import customtkinter
-import tkinter.messagebox as messagebox
 from CTkMessagebox import CTkMessagebox
-<<<<<<< HEAD
-from PIL import ImageTk, Image
-=======
 
->>>>>>> a6a9537 (tirando classe alterar_bolsa)
 
 # Estabelecer a conexão com o banco de dados
 conn = psycopg2.connect(
     host="localhost",
-    database="DoacaoDeSangue",
+    database="doacaoDeSangue",
     user="postgres",
-    password="jogo1234"
+    password="2612"
 )
 
 cur = conn.cursor()
@@ -29,13 +24,6 @@ class TelaInicial:
         self.root.title("Sistem de Doação de Sangue")
         #self.root.iconbitmap()
         self.root.resizable(False, False)
-        """
-        bg_image = Image.open(r'C:\Users\carlo\Documents\PROJETOS\trabalho_bd\doe.png')
-        bg_image = bg_image.resize((900,400), Image.LANCZOS)
-        self.bg_photo = ImageTk.PhotoImage(bg_image)
-        self.bg_label = tk.Label(self.root, image=self.bg_photo)
-        self.bg_label.place(x=0, y=0, relwidth=1, relheight=1)"""
-
 
 
         self.title = customtkinter.CTkLabel(root, text="Hematocare", font=("Century Gothic bold", 24), text_color="#fff")
@@ -70,6 +58,9 @@ class TelaDoador:
         self.root.title("Doador")
         self.root.resizable(False, False)
 
+
+
+
         # Configurar peso das linhas e colunas
         for i in range(12):
             self.root.grid_rowconfigure(i, weight=1)
@@ -79,14 +70,12 @@ class TelaDoador:
         self.spam = customtkinter.CTkLabel(root, text="Escolha uma opção:", font=("Century Gothic bold", 16), text_color="#fff" )
         self.spam.pack(padx=50, pady=70)
        
-       
         self.button1 = customtkinter.CTkButton(root, text="Registrar Novo Doador", command=self.abrir_tela_doador_register)
-        self.button1.pack(padx=10, pady=10)
         self.button1.pack(padx=10, pady=10)
 
         self.button4 = customtkinter.CTkButton(root, text="Remover Doador", command=self.abrir_tela_doador_remover)
         self.button4.pack(padx=10, pady=10)
-
+        
         self.button5 = customtkinter.CTkButton(root, text="Consultar Doador", command=self.abrir_tela_doador_consultar)
         self.button5.pack(padx=10, pady=10) 
 
@@ -135,15 +124,15 @@ class registerDoador:
         self.root.title("Doador")
         self.root.resizable(False, False)
 
+
+
         # Configurar peso das linhas e colunas
         for i in range(12):
             self.root.grid_rowconfigure(i, weight=1)
         for i in range(2):
             self.root.grid_columnconfigure(i, weight=1)
 
-        #NAÕ ESTA CADASTRANDO
-
-        """def format_cpf(entry):
+        def format_cpf(entry):
             current_text = entry.get()  # Obter o texto atual do campo de entrada
             cleaned_text = ''.join(filter(str.isdigit, current_text))  # Remover todos os caracteres não numéricos
 
@@ -158,14 +147,14 @@ class registerDoador:
                 formatted_text = f"{cleaned_text[:3]}.{cleaned_text[3:6]}.{cleaned_text[6:9]}-{cleaned_text[9:]}"
 
             entry.delete(0, 'end')  # Limpar o campo de entrada
-            entry.insert(0, formatted_text)  # Inserir o CPF formatado no campo de entrada"""
+            entry.insert(0, formatted_text)  # Inserir o CPF formatado no campo de entrada
 
                 
         self.label1 = customtkinter.CTkLabel(root, text="Digite o CPF:")
         self.label1.grid(row=1, column=0, sticky="e")
         self.entry1 = customtkinter.CTkEntry(root)
         self.entry1.grid(row=1, column=1, padx=10)
-        """self.entry1.bind("<KeyRelease>", lambda event: format_cpf(self.entry1))"""
+        self.entry1.bind("<KeyRelease>", lambda event: format_cpf(self.entry1))
 
         self.label2 = customtkinter.CTkLabel(root, text="Digite o nome:")
         self.label2.grid(row=2, column=0, sticky="e")
@@ -217,14 +206,14 @@ class registerDoador:
         self.entry11 = customtkinter.CTkEntry(root)
         self.entry11.grid(row=11, column=1, padx=10)
 
-
         self.button1 = customtkinter.CTkButton(root, text="Registrar Novo Doador", command=self.register_doador)
         self.button1.grid(row=13, column=0, padx=10, pady=10)
 
         self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_doador)
         self.button_voltar.grid(row=13, column=1, padx=10, pady=10)
         
-    
+
+
     def voltar_tela_doador(self):
         self.root.destroy()  # Fechar a tela atual
         root = customtkinter.CTk()
@@ -276,6 +265,9 @@ class removerDoador:
         self.root.geometry("700x500")
         self.root.title("Doador")
         self.root.resizable(False, False)
+
+
+        
 
         # Configurar peso das linhas e colunas
         for i in range(12):
@@ -346,6 +338,7 @@ class removerDoador:
         # Show some positive message with the checkmark icon
         CTkMessagebox(title="",message="O usuário foi removido",icon="check", option_1="OK!")
         CTkMessagebox.show()
+ 
 
 class consultDoador:
     def __init__(self, root):
@@ -384,14 +377,14 @@ class consultDoador:
         root.mainloop()
     
     def abrir_tela_consulta_doador(self, doador_info):
+
         root_resultado = customtkinter.CTk()
         root_resultado.geometry("700x500")
         root_resultado.title("Resultado da Consulta")
+
         if doador_info:
-            
             resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=("Century Gothic bold", 14))
             resultado_label.pack(padx=50, pady=70)
-            root_resultado.mainloop()
         else:
             messagebox =CTkMessagebox(title="",message="O doador não foi encontrado",icon="warning", option_1="OK!")
             messagebox.show()
@@ -571,9 +564,7 @@ class TelaBolsaSangue:
         
         self.button3 = customtkinter.CTkButton(root, text="Consultar Bolsa de Sangue", command=self.abrir_tela_bolsa_consulta)
         self.button3.pack(padx=10, pady=10)
-        """
-        self.button4 = customtkinter.CTkButton(root, text="Alterar Dados Bolsa De Sangue", command=self.abrir_tela_bolsa_alterar)
-        self.button4.pack(padx=10, pady=10)"""
+
 
         self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_inicial)
         self.button_voltar.pack(padx=10, pady=10)
@@ -602,11 +593,6 @@ class TelaBolsaSangue:
         removerBolsa(root)
         root.mainloop()
 
-"""    def abrir_tela_bolsa_alterar(self):
-        self.root.destroy()  # Fechar a tela inicial
-        root = customtkinter.CTk()
-        alterarBolsa(root)
-        root.mainloop()"""
 
  # Exibir no terminal
      
@@ -677,10 +663,10 @@ class consultaBolsa:
         if doador_info:
             resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=("Century Gothic bold", 14))
             resultado_label.pack(padx=50, pady=70)
-            root_resultado.mainloop()
-
         else:
-            messagebox.showwarning(title="", message="Bolsa de sangue não foi encontrada")
+            CTkMessagebox(title="",message="Bolsa de sangue não foi encontrado",icon="cancel", option_1="OK!")
+            CTkMessagebox.show()
+        root_resultado.mainloop()
 
 class removerBolsa:
     def __init__(self, root):
@@ -751,7 +737,8 @@ class registerBolsa:
         self.root = root
         customtkinter.set_appearance_mode("System")
         self.root.geometry("700x500")
-        self.root.title("BOlsa de Sangue")
+        self.root.title("Bolsa de Sangue")
+        self.root.resizable(False, False)
 
 
         # Configurar peso das linhas e colunas
@@ -820,76 +807,6 @@ class registerBolsa:
     # Show some positive message with the checkmark icon
         CTkMessagebox(title="",message="Bolsa de sangue foi cadastrado com sucesso",icon="check", option_1="OK!")
         CTkMessagebox.show()
-<<<<<<< HEAD
-
-#class alterarBolsa:
-#def __init__(self, root):
-#self.root = root
-#customtkinter.set_appearance_mode("System")
-#self.root.geometry("700x500")
-#self.root.title("Alterar Bolsa de Sangue")
-
-"""
-# Configurar peso das linhas e colunas
-for i in range(12):
-    self.root.grid_rowconfigure(i, weight=1)
-for i in range(2):
-    self.root.grid_columnconfigure(i, weight=1)
-
-self.result_label = customtkinter.CTkLabel(root, text="")
-self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
-
-self.label11 = customtkinter.CTkLabel(root, text="Digite o código da bolsa de sangue:")
-self.label11.grid(row=1, column=0, sticky="e")
-self.entry11 = customtkinter.CTkEntry(root)
-self.entry11.grid(row=1, column=1, padx=10)
-
-self.label12 = customtkinter.CTkLabel(root, text="Digite o cpf:")
-self.label12.grid(row=2, column=0, sticky="e")
-self.entry12 = customtkinter.CTkEntry(root)
-self.entry12.grid(row=2, column=1, padx=10)
-
-self.label13 = customtkinter.CTkLabel(root, text="Digite a data:")
-self.label13.grid(row=3, column=0, sticky="e")
-self.entry13 = customtkinter.CTkEntry(root)
-self.entry13.grid(row=3, column=1, padx=10)
-
-self.label14 = customtkinter.CTkLabel(root, text="Digite o CNPJ:")
-self.label14.grid(row=4, column=0, sticky="e")
-self.entry14 = customtkinter.CTkEntry(root)
-self.entry14.grid(row=4, column=1, padx=10)
-
-self.button1 = customtkinter.CTkButton(root, text="Alterar dados da Bolsa de Sangue", command=self.alterar_dados_bolsa_de_sangue)
-self.button1.grid(row=11, column=0, padx=10, pady=(70,30))
-"""
-"""self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_inicial)
-self.button_voltar.grid(row=11, column=1, padx=10, pady=(70,30))
-
-
-def voltar_tela_inicial(self):
-self.root.destroy()  # Fechar a tela atual
-root = customtkinter.CTk()
-TelaBolsaSangue(root)
-root.mainloop()
-
-def alterar_dadosbolsa_de_sangue(self):"""
-"""codigo = self.entry11.get()
-cpf = self.entry12.get()
-data = self.entry13.get()
-cnpj = self.entry14.get()
-
-# Executar instrução SQL para inserir os dados no banco de dados
-cur.execute("INSERT INTO bolsa_de_sangue (codigo, cpf, data, cnpj) VALUES (%s, %s, %s, %s)",
-            (codigo, cpf, data, cnpj))
-conn.commit()
-
-print("Código:", codigo)
-print("CPF:", cpf)
-print("Data:", data)
-print("CNPJ:", cnpj)
-"""
-=======
->>>>>>> a6a9537 (tirando classe alterar_bolsa)
 
 root = customtkinter.CTk()
 TelaInicial(root)
