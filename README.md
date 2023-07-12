@@ -1,16 +1,33 @@
-## Etapa 1: Definição do domínio do sistema
+# Sistema de Doação de Sangue
 
-## Etapa 2: Descrição de Requisitos e Entidades
+Este é um projeto de um sistema de doação de sangue desenvolvido em Python, utilizando o framework CustomTkinter para a interface gráfica e o banco de dados PostgreSQL para armazenar os dados.
 
-## Etapa 3: Diagrama Entidade-Relacionamento
+## Recursos
 
-## Etapa 4: Mapeamento do Modelo Relacional
+- Cadastro de novos doadores
+- Registro de bolsas de sangue
+- Remoção de doadores
 
-## Etapa 5: Normalização
+## Pré-requisitos
 
-## Etapa 6: SGBD (Esquema, consultas e Visão)
+- Python 3.7 ou superior
+- PostgreSQL
 
-## Etapa 7: Função, gatilho e usuários
-## Etapa 8: Aplicação 
-    Implementar uma aplicação simples que faz consultas, inserções e remoções em relações criadas no trabalho. As consultas aos dados devem ser baseadas nas consultas/visões/procedimentos armazenados criados.
+## Configuração
+
+1. Clone este repositório:
+
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
+
+2. Instale as dependências do projeto:
+
+pip install -r requirements.txt
+
+3. Crie um banco de dados no PostgreSQL chamado "doacaoDeSangue".
+
+4. Execute o script `database.sql` para criar as tabelas necessárias no banco de dados.
+
+5. Abra o arquivo `main.py` e configure as informações de conexão com o banco de dados na seção "Estabelecer a conexão com o banco de dados".
+
+6. Execute o arquivo `main.py` para iniciar o sistema.
 
