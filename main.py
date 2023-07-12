@@ -396,7 +396,7 @@ class consultDoador:
             resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=("Century Gothic bold", 14))
             resultado_label.pack(padx=50, pady=70)
         else:
-            messagebox =CTkMessagebox(title="",message="O usuário não foi encontrado",icon="warning", option_1="OK!")
+            messagebox =CTkMessagebox(title="",message="O doador não foi encontrado",icon="warning", option_1="OK!")
             messagebox.show()
         root_resultado.mainloop()
 
