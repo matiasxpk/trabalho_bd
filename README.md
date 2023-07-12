@@ -34,25 +34,29 @@ Este é um projeto de um sistema de doação de sangue desenvolvido em Python, u
 
 ## Etapas
 
-Etapa 1: Descrição de Requisitos
+### Etapa 1: Descrição de Requisitos
 
 Nesta etapa, são descritos os requisitos do sistema de doação de sangue. Isso envolve identificar as funcionalidades, os dados necessários, os usuários envolvidos e quaisquer restrições ou regras específicas.
-Etapa 2: Modelagem do diagrama ER
+### Etapa 2: Modelagem do diagrama ER
 
 Nesta etapa, é feita a modelagem do diagrama Entidade-Relacionamento (ER). O diagrama ER é uma representação gráfica das entidades do sistema, seus relacionamentos e os atributos associados a cada entidade.
-Etapa 3: Mapeamento do Modelo Relacional
+
+### Etapa 3: Mapeamento do Modelo Relacional
 
 Nesta etapa, o diagrama ER é mapeado para um modelo relacional, que consiste na criação de tabelas, definição de chaves primárias e estrangeiras, e estabelecimento de relacionamentos entre as tabelas.
-Etapa 4: Normalização
+
+### Etapa 4: Normalização
 
 Nesta etapa, é realizada a normalização do modelo relacional. A normalização é o processo de organização das tabelas e eliminação de redundâncias, garantindo que o banco de dados esteja estruturado de forma eficiente.
-Etapa 5: SGBD (Esquema, consultas e Visão)
+
+### Etapa 5: SGBD (Esquema, consultas e Visão)
 
 Nesta etapa, são definidos o esquema do banco de dados, as consultas que serão realizadas e as visões necessárias. O esquema descreve a estrutura e as relações do banco de dados, enquanto as consultas e visões são utilizadas para recuperar informações específicas.
-Etapa 6: Função, gatilho e usuários
+
+### Etapa 6: Função, gatilho e usuários
 
 Nesta etapa, são definidas funções, gatilhos e usuários adicionais, caso necessário. As funções são blocos de código que podem ser chamados para executar tarefas específicas, os gatilhos são acionados automaticamente em resposta a eventos no banco de dados, e os usuários são criados para controlar o acesso e permissões no sistema.
-Etapa 7: Aplicação
+### Etapa 7: Aplicação
 
 Nesta etapa, a aplicação propriamente dita é desenvolvida, utilizando a modelagem e estrutura definidas nas etapas anteriores. Isso envolve a implementação das funcionalidades do sistema de doação de sangue, como cadastro de doadores, agendamento de doações, entre outras.
 
