@@ -21,7 +21,7 @@ git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
 2. Instale as dependências do projeto:
 
-    ```python
+```python
  ```pip install -r requirements.txt
 
 
