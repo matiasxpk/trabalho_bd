@@ -3,7 +3,11 @@ import tkinter as tk
 import customtkinter
 import tkinter.messagebox as messagebox
 from CTkMessagebox import CTkMessagebox
+<<<<<<< HEAD
 from PIL import ImageTk, Image
+=======
+
+>>>>>>> a6a9537 (tirando classe alterar_bolsa)
 
 # Estabelecer a conexão com o banco de dados
 conn = psycopg2.connect(
@@ -14,6 +18,7 @@ conn = psycopg2.connect(
 )
 
 cur = conn.cursor()
+
 
 
 class TelaInicial:
@@ -91,19 +96,6 @@ class TelaDoador:
         self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_inicial)
         self.button_voltar.pack(padx=10, pady=10)
 
-    def format_cpf(entry):
-        current_text = entry.get()  # Obter o texto atual do campo de entrada
-        cleaned_text = ''.join(filter(str.isdigit, current_text))  # Remover todos os caracteres não numéricos
-
-        # Verificar o tamanho do CPF e adicionar os pontos e o traço corretamente
-        if len(cleaned_text) < 4:
-            formatted_text = cleaned_text
-        elif len(cleaned_text) < 7:
-            formatted_text = f"{cleaned_text[:3]}.{cleaned_text[3:]}"
-        elif len(cleaned_text) < 10:
-            formatted_text = f"{cleaned_text[:3]}.{cleaned_text[3:6]}.{cleaned_text[6:]}"
-        else:
-            formatted_text = f"{cleaned_text[:3]}.{cleaned_text[3:6]}.{cleaned_text[6:9]}-{cleaned_text[9:]}"
 
     def voltar_tela_inicial(self):
         self.root.destroy()  # Fechar a tela atual
@@ -828,6 +820,7 @@ class registerBolsa:
     # Show some positive message with the checkmark icon
         CTkMessagebox(title="",message="Bolsa de sangue foi cadastrado com sucesso",icon="check", option_1="OK!")
         CTkMessagebox.show()
+<<<<<<< HEAD
 
 #class alterarBolsa:
 #def __init__(self, root):
@@ -895,6 +888,8 @@ print("CPF:", cpf)
 print("Data:", data)
 print("CNPJ:", cnpj)
 """
+=======
+>>>>>>> a6a9537 (tirando classe alterar_bolsa)
 
 root = customtkinter.CTk()
 TelaInicial(root)
