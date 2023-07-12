@@ -393,8 +393,8 @@ class alterarDoador:
             self.root.grid_columnconfigure(i, weight=1)
         
         
-        """self.result_label = customtkinter.CTkLabel(root, text="")
-        self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")"""
+        self.result_label = customtkinter.CTkLabel(root, text="")
+        self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
 
         self.label1 = customtkinter.CTkLabel(root, text="Digite o CPF:")
         self.label1.grid(row=1, column=0, sticky="e")
@@ -536,8 +536,8 @@ class TelaBolsaSangue:
         self.button3 = customtkinter.CTkButton(root, text="Consultar Bolsa de Sangue", command=self.abrir_tela_bolsa_consulta)
         self.button3.pack(padx=10, pady=10)
 
-        self.button4 = customtkinter.CTkButton(root, text="Alterar Dados Bolsa De Sangue", command=self.abrir_tela_bolsa_alterar)
-        self.button4.pack(padx=10, pady=10)
+        """self.button4 = customtkinter.CTkButton(root, text="Alterar Dados Bolsa De Sangue", command=self.abrir_tela_bolsa_alterar)
+        self.button4.pack(padx=10, pady=10)"""
 
         self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_inicial)
         self.button_voltar.pack(padx=10, pady=10)
