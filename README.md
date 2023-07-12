@@ -52,13 +52,13 @@ Nesta etapa, é realizada a normalização do modelo relacional. A normalizaçã
 ### Etapa 5: SGBD (Esquema, consultas e Visão)
 
 Nesta etapa, são definidos o esquema do banco de dados, as consultas que serão realizadas e as visões necessárias. O esquema descreve a estrutura e as relações do banco de dados, enquanto as consultas e visões são utilizadas para recuperar informações específicas.
-"esquema"
-"consultas"
-
+`esquema/`
+`consultas/`
 ### Etapa 6: Função, gatilho e usuários
 
 Nesta etapa, são definidas funções, gatilhos e usuários adicionais, caso necessário. As funções são blocos de código que podem ser chamados para executar tarefas específicas, os gatilhos são acionados automaticamente em resposta a eventos no banco de dados, e os usuários são criados para controlar o acesso e permissões no sistema.
+`scripts/`
 ### Etapa 7: Aplicação
 
-Nesta etapa, a aplicação propriamente dita é desenvolvida, utilizando a modelagem e estrutura definidas nas etapas anteriores. Isso envolve a implementação das funcionalidades do sistema de doação de sangue, como cadastro de doadores, agendamento de doações, entre outras.
+Nesta etapa, a aplicação propriamente dita é desenvolvida, utilizando a modelagem e estrutura definidas nas etapas anteriores. Isso envolve a implementação das funcionalidades do sistema de doação de sangue, como cadastro de doadores, de bolsas de sangue, entre outras.
 
