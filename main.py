@@ -237,7 +237,7 @@ class registerDoador:
 
     def show_checkmark(self):
         # Show some positive message with the checkmark icon
-        CTkMessagebox(title="",message="O usuário foi cadastrado com sucesso",icon="check", option_1="OK!")
+        CTkMessagebox(title="",message="O doador foi cadastrado com sucesso",icon="check", option_1="OK!")
         CTkMessagebox.show()
 
 class removerDoador:
@@ -318,7 +318,7 @@ class removerDoador:
 
     def show_checkmark(self):
         # Show some positive message with the checkmark icon
-        CTkMessagebox(title="",message="O usuário foi removido",icon="check", option_1="OK!")
+        CTkMessagebox(title="",message="O doador foi removido",icon="check", option_1="OK!")
         CTkMessagebox.show()
  
 
@@ -358,9 +358,9 @@ class consultDoador:
         TelaDoador(root)
         root.mainloop()
     
-    def abrir_tela_consulta_doador(self, doador_info):
+    def abrir_tela_consulta_doador(self, doador_info, root):
 
-        root_resultado = customtkinter.CTk()
+        root_resultado = root
         root_resultado.geometry("700x500")
         root_resultado.title("Resultado da Consulta")
 
@@ -388,7 +388,7 @@ class consultDoador:
         else:
             doador_info = None
 
-        self.abrir_tela_consulta_doador(doador_info)
+        self.abrir_tela_consulta_doador(doador_info, self.root)
         print(doador_info)  # Exibir no terminal # Exibir no terminal
 
 class alterarDoador:
@@ -512,7 +512,7 @@ class alterarDoador:
 
     def show_checkmark(self):
         # Show some positive message with the checkmark icon
-        CTkMessagebox(title="",message="O usuário foi alterado com sucesso",icon="check", option_1="OK!")
+        CTkMessagebox(title="",message="O doador foi alterado com sucesso",icon="check", option_1="OK!")
         CTkMessagebox.show()
     
     
