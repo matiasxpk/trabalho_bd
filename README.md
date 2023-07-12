@@ -22,7 +22,7 @@ git clone https://github.com/seu-usuario/nome-do-repositorio.git
 2. Instale as dependências do projeto:
 
 ```python
- ```pip install -r requirements.txt
+ ```pip install -r requirements.txt ```
 
 
 3. Crie um banco de dados no PostgreSQL chamado "doacaoDeSangue".
