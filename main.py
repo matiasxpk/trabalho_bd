@@ -25,16 +25,15 @@ class TelaInicial:
         #self.root.iconbitmap()
         self.root.resizable(False, False)
 
-
         self.title = customtkinter.CTkLabel(root, text="Hematocare", font=("Century Gothic bold", 24), text_color="#fff")
         self.spam = customtkinter.CTkLabel(root, text="Escolha uma opção:", font=("Century Gothic bold", 16), text_color="#fff" )
         self.title.pack(padx=0, pady=10)
         self.spam.pack(padx=50, pady=70)
 
-        self.button_doador = customtkinter.CTkButton(root, text="Doador", command=self.abrir_tela_doador)
+        self.button_doador = customtkinter.CTkButton(root, text="Doador", fg_color="#EE0303", command=self.abrir_tela_doador)
         self.button_doador.pack(padx=10, pady=10)
 
-        self.button_bolsa = customtkinter.CTkButton(root, text="Bolsa de Sangue", command=self.abrir_tela_bolsa)
+        self.button_bolsa = customtkinter.CTkButton(root, text="Bolsa de Sangue", fg_color="#EE0303", command=self.abrir_tela_bolsa)
         self.button_bolsa.pack(padx=10, pady=10)
 
 
@@ -70,19 +69,19 @@ class TelaDoador:
         self.spam = customtkinter.CTkLabel(root, text="Escolha uma opção:", font=("Century Gothic bold", 16), text_color="#fff" )
         self.spam.pack(padx=50, pady=70)
        
-        self.button1 = customtkinter.CTkButton(root, text="Registrar Novo Doador", command=self.abrir_tela_doador_register)
+        self.button1 = customtkinter.CTkButton(root, text="Registrar Novo Doador", fg_color="#EE0303", command=self.abrir_tela_doador_register)
         self.button1.pack(padx=10, pady=10)
 
-        self.button4 = customtkinter.CTkButton(root, text="Remover Doador", command=self.abrir_tela_doador_remover)
+        self.button4 = customtkinter.CTkButton(root, text="Remover Doador", fg_color="#EE0303", command=self.abrir_tela_doador_remover)
         self.button4.pack(padx=10, pady=10)
         
-        self.button5 = customtkinter.CTkButton(root, text="Consultar Doador", command=self.abrir_tela_doador_consultar)
+        self.button5 = customtkinter.CTkButton(root, text="Consultar Doador", fg_color="#EE0303", command=self.abrir_tela_doador_consultar)
         self.button5.pack(padx=10, pady=10) 
 
-        self.button6 = customtkinter.CTkButton(root, text="Alterar Dados Doador", command=self.abrir_tela_doador_alterar)
+        self.button6 = customtkinter.CTkButton(root, text="Alterar Dados Doador",fg_color="#EE0303",command=self.abrir_tela_doador_alterar)
         self.button6.pack(padx=10, pady=10)
 
-        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_inicial)
+        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", fg_color="gray", hover_color="#808080", command=self.voltar_tela_inicial)
         self.button_voltar.pack(padx=10, pady=10)
 
 
@@ -132,29 +131,12 @@ class registerDoador:
         for i in range(2):
             self.root.grid_columnconfigure(i, weight=1)
 
-        def format_cpf(entry):
-            current_text = entry.get()  # Obter o texto atual do campo de entrada
-            cleaned_text = ''.join(filter(str.isdigit, current_text))  # Remover todos os caracteres não numéricos
-
-            # Verificar o tamanho do CPF e adicionar os pontos e o traço corretamente
-            if len(cleaned_text) < 4:
-                formatted_text = cleaned_text
-            elif len(cleaned_text) < 7:
-                formatted_text = f"{cleaned_text[:3]}.{cleaned_text[3:]}"
-            elif len(cleaned_text) < 10:
-                formatted_text = f"{cleaned_text[:3]}.{cleaned_text[3:6]}.{cleaned_text[6:]}"
-            else:
-                formatted_text = f"{cleaned_text[:3]}.{cleaned_text[3:6]}.{cleaned_text[6:9]}-{cleaned_text[9:]}"
-
-            entry.delete(0, 'end')  # Limpar o campo de entrada
-            entry.insert(0, formatted_text)  # Inserir o CPF formatado no campo de entrada
-
+        
                 
         self.label1 = customtkinter.CTkLabel(root, text="Digite o CPF:")
         self.label1.grid(row=1, column=0, sticky="e")
         self.entry1 = customtkinter.CTkEntry(root)
         self.entry1.grid(row=1, column=1, padx=10)
-        self.entry1.bind("<KeyRelease>", lambda event: format_cpf(self.entry1))
 
         self.label2 = customtkinter.CTkLabel(root, text="Digite o nome:")
         self.label2.grid(row=2, column=0, sticky="e")
@@ -206,10 +188,10 @@ class registerDoador:
         self.entry11 = customtkinter.CTkEntry(root)
         self.entry11.grid(row=11, column=1, padx=10)
 
-        self.button1 = customtkinter.CTkButton(root, text="Registrar Novo Doador", command=self.register_doador)
+        self.button1 = customtkinter.CTkButton(root, text="Registrar Novo Doador", fg_color="#EE0303", command=self.register_doador)
         self.button1.grid(row=13, column=0, padx=10, pady=10)
 
-        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_doador)
+        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", fg_color="gray", hover_color="#808080", command=self.voltar_tela_doador)
         self.button_voltar.grid(row=13, column=1, padx=10, pady=10)
         
 
@@ -283,10 +265,10 @@ class removerDoador:
         self.entry1 = customtkinter.CTkEntry(root)
         self.entry1.grid(row=1, column=1, padx=10)
 
-        self.button4 = customtkinter.CTkButton(root, text="Remover Doador", command=self.remove_doador)
+        self.button4 = customtkinter.CTkButton(root, text="Remover Doador", fg_color="#EE0303",  command=self.remove_doador)
         self.button4.grid(row=11, column=0, padx=10, pady=(70,30))
 
-        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_doadro)
+        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", fg_color="gray", hover_color="#808080", command=self.voltar_tela_doadro)
         self.button_voltar.grid(row=11, column=1, padx=10, pady=(70,30))
 
     
@@ -364,10 +346,10 @@ class consultDoador:
         self.entry1 = customtkinter.CTkEntry(root)
         self.entry1.grid(row=1, column=1, padx=10)
 
-        self.button5 = customtkinter.CTkButton(root, text="Consultar Doador", command=self.consultar_doador)
+        self.button5 = customtkinter.CTkButton(root, text="Consultar Doador", fg_color="#EE0303", command=self.consultar_doador)
         self.button5.grid(row=11, column=0, padx=10, pady=(70,30))  
 
-        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_doadro)
+        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", fg_color="gray", hover_color="#808080", command=self.voltar_tela_doadro)
         self.button_voltar.grid(row=11, column=1, padx=10, pady=(70,30))
 
     def voltar_tela_doadro(self):
@@ -480,10 +462,10 @@ class alterarDoador:
         self.entry11.grid(row=11, column=1, padx=10)
 
 
-        self.button1 = customtkinter.CTkButton(root, text="Alterar dados do Doador", command=self.alterar_dados_doador)
+        self.button1 = customtkinter.CTkButton(root, text="Alterar dados do Doador", fg_color="#EE0303", command=self.alterar_dados_doador)
         self.button1.grid(row=13, column=0, padx=10, pady=10)
         
-        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_inicial)
+        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", fg_color="gray", hover_color="#808080", command=self.voltar_tela_inicial)
         self.button_voltar.grid(row=13, column=1, padx=10, pady=10)
         
 
@@ -556,17 +538,17 @@ class TelaBolsaSangue:
         self.spam = customtkinter.CTkLabel(root, text="Escolha uma opção:", font=("Century Gothic bold", 16), text_color="#fff" )
         self.spam.pack(padx=50, pady=70)
        
-        self.button1 = customtkinter.CTkButton(root, text="Registrar Bolsa de Sangue", command=self.abrir_tela_bolsa_register)
+        self.button1 = customtkinter.CTkButton(root, text="Registrar Bolsa de Sangue", fg_color="#EE0303", command=self.abrir_tela_bolsa_register)
         self.button1.pack(padx=10, pady=10)
 
-        self.button2 = customtkinter.CTkButton(root, text="Remover Bolsa de Sangue", command=self.abrir_tela_bolsa_remove)
+        self.button2 = customtkinter.CTkButton(root, text="Remover Bolsa de Sangue", fg_color="#EE0303", command=self.abrir_tela_bolsa_remove)
         self.button2.pack(padx=10, pady=10)
         
-        self.button3 = customtkinter.CTkButton(root, text="Consultar Bolsa de Sangue", command=self.abrir_tela_bolsa_consulta)
+        self.button3 = customtkinter.CTkButton(root, text="Consultar Bolsa de Sangue", fg_color="#EE0303", command=self.abrir_tela_bolsa_consulta)
         self.button3.pack(padx=10, pady=10)
 
 
-        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_inicial)
+        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", fg_color="gray", hover_color="#808080", command=self.voltar_tela_inicial)
         self.button_voltar.pack(padx=10, pady=10)
 
     def voltar_tela_inicial(self):
@@ -620,10 +602,10 @@ class consultaBolsa:
         self.entry12 = customtkinter.CTkEntry(root)
         self.entry12.grid(row=2, column=1, padx=10)
 
-        self.button3 = customtkinter.CTkButton(root, text="Consultar Bolsa de Sangue", command=self.consultar_Bolsa_de_Sangue)
+        self.button3 = customtkinter.CTkButton(root, text="Consultar Bolsa de Sangue", fg_color="#EE0303", command=self.consultar_Bolsa_de_Sangue)
         self.button3.grid(row=11, column=0, padx=10, pady=(70,30))
 
-        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_inicial)
+        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", fg_color="gray", hover_color="#808080", command=self.voltar_tela_inicial)
         self.button_voltar.grid(row=11, column=1, padx=10, pady=(70,30))
 
 
@@ -691,10 +673,10 @@ class removerBolsa:
         self.entry12 = customtkinter.CTkEntry(root)
         self.entry12.grid(row=2, column=1, padx=10)
 
-        self.button2 = customtkinter.CTkButton(root, text="Remover Bolsa de Sangue", command=self.remover_Bolsa_de_Sangue)
+        self.button2 = customtkinter.CTkButton(root, text="Remover Bolsa de Sangue", fg_color="#EE0303", command=self.remover_Bolsa_de_Sangue)
         self.button2.grid(row=11, column=0, padx=10, pady=(70,30))
 
-        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_inicial)
+        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", fg_color="gray", hover_color="#808080", command=self.voltar_tela_inicial)
         self.button_voltar.grid(row=11, column=1, padx=10, pady=(70,30))
 
 
@@ -770,10 +752,10 @@ class registerBolsa:
         self.entry14 = customtkinter.CTkEntry(root)
         self.entry14.grid(row=4, column=1, padx=10)
 
-        self.button1 = customtkinter.CTkButton(root, text="Registrar Bolsa de Sangue", command=self.register_bolsa_de_sangue)
+        self.button1 = customtkinter.CTkButton(root, text="Registrar Bolsa de Sangue",fg_color="#EE0303", command=self.register_bolsa_de_sangue)
         self.button1.grid(row=11, column=0, padx=10, pady=(70,30))
 
-        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", command=self.voltar_tela_inicial)
+        self.button_voltar = customtkinter.CTkButton(root, text="Voltar", fg_color="gray", hover_color="#808080", command=self.voltar_tela_inicial)
         self.button_voltar.grid(row=11, column=1, padx=10, pady=(70,30))
 
 
