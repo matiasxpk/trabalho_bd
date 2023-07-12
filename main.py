@@ -3,6 +3,7 @@ import tkinter as tk
 import customtkinter
 import tkinter.messagebox as messagebox
 from CTkMessagebox import CTkMessagebox
+from PIL import ImageTk, Image
 
 # Estabelecer a conexão com o banco de dados
 conn = psycopg2.connect(
@@ -23,6 +24,13 @@ class TelaInicial:
         self.root.title("Sistem de Doação de Sangue")
         #self.root.iconbitmap()
         self.root.resizable(False, False)
+        """
+        bg_image = Image.open(r'C:\Users\carlo\Documents\PROJETOS\trabalho_bd\doe.png')
+        bg_image = bg_image.resize((900,400), Image.LANCZOS)
+        self.bg_photo = ImageTk.PhotoImage(bg_image)
+        self.bg_label = tk.Label(self.root, image=self.bg_photo)
+        self.bg_label.place(x=0, y=0, relwidth=1, relheight=1)"""
+
 
 
         self.title = customtkinter.CTkLabel(root, text="Hematocare", font=("Century Gothic bold", 24), text_color="#fff")
