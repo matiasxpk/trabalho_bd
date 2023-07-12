@@ -36,7 +36,7 @@ Este é um projeto de um sistema de doação de sangue desenvolvido em Python, u
 
 ### Etapa 1: Descrição de Requisitos
 
-Nesta etapa, são descritos os requisitos do sistema de doação de sangue. Isso envolve identificar as funcionalidades, os dados necessários, os usuários envolvidos e quaisquer restrições ou regras específicas.
+Nesta etapa, são descritos os requisitos do sistema de doação de sangue. Isso envolve identificar as funcionalidades, os dados necessários, as entidades envolvidas e quaisquer restrições ou regras específicas.
 ### Etapa 2: Modelagem do diagrama ER
 
 Nesta etapa, é feita a modelagem do diagrama Entidade-Relacionamento (ER). O diagrama ER é uma representação gráfica das entidades do sistema, seus relacionamentos e os atributos associados a cada entidade.
@@ -52,6 +52,8 @@ Nesta etapa, é realizada a normalização do modelo relacional. A normalizaçã
 ### Etapa 5: SGBD (Esquema, consultas e Visão)
 
 Nesta etapa, são definidos o esquema do banco de dados, as consultas que serão realizadas e as visões necessárias. O esquema descreve a estrutura e as relações do banco de dados, enquanto as consultas e visões são utilizadas para recuperar informações específicas.
+"esquema"
+"consultas"
 
 ### Etapa 6: Função, gatilho e usuários
 
