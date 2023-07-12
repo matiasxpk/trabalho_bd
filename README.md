@@ -17,7 +17,7 @@ Este é um projeto de um sistema de doação de sangue desenvolvido em Python, u
 
 1. Clone este repositório:
 
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+    git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
 2. Instale as dependências do projeto:
 
