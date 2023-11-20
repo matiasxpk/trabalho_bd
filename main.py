@@ -562,19 +562,19 @@ class TelaBolsaSangue:
     def abrir_tela_bolsa_consulta(self):
         self.root.destroy()  # Fechar a tela inicial
         root = customtkinter.CTk()
-        consultaBolsa(root)
+        ConsultaBolsa(root)
         root.mainloop()
 
     def abrir_tela_bolsa_register(self):
         self.root.destroy()  # Fechar a tela inicial
         root = customtkinter.CTk()
-        registerBolsa(root)
+        RegisterBolsa(root)
         root.mainloop()
 
     def abrir_tela_bolsa_remove(self):
         self.root.destroy()  # Fechar a tela inicial
         root = customtkinter.CTk()
-        removerBolsa(root)
+        RemoverBolsa(root)
         root.mainloop()
 
 
