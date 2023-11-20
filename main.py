@@ -13,8 +13,8 @@ conn = psycopg2.connect(
 )
 
 cur = conn.cursor()
-
-
+text_escolher_opcao = "Escolha uma opção:"
+fonte = "Century Gothic bold"
 
 class TelaInicial:
     def __init__(self, root):
@@ -25,8 +25,8 @@ class TelaInicial:
         #self.root.iconbitmap()
         self.root.resizable(False, False)
 
-        self.title = customtkinter.CTkLabel(root, text="Hematocare", font=("Century Gothic bold", 24), text_color="#fff")
-        self.spam = customtkinter.CTkLabel(root, text="Escolha uma opção:", font=("Century Gothic bold", 16), text_color="#fff" )
+        self.title = customtkinter.CTkLabel(root, text="Hematocare", font=(fonte, 24), text_color="#fff")
+        self.spam = customtkinter.CTkLabel(root, text=text_escolher_opcao, font=(fonte, 16), text_color="#fff" )
         self.title.pack(padx=0, pady=10)
         self.spam.pack(padx=50, pady=70)
 
@@ -66,7 +66,7 @@ class TelaDoador:
         for i in range(2):
             self.root.grid_columnconfigure(i, weight=1)
 
-        self.spam = customtkinter.CTkLabel(root, text="Escolha uma opção:", font=("Century Gothic bold", 16), text_color="#fff" )
+        self.spam = customtkinter.CTkLabel(root, text=text_escolher_opcao, font=(fonte, 16), text_color="#fff" )
         self.spam.pack(padx=50, pady=70)
        
         self.button1 = customtkinter.CTkButton(root, text="Registrar Novo Doador", fg_color="#EE0303", command=self.abrir_tela_doador_register)
@@ -114,7 +114,9 @@ class TelaDoador:
         root = customtkinter.CTk()
         AlterarDoador(root)
         root.mainloop()
-    
+
+digiteOCpf = "Dígite o CPF:"
+
 class RegisterDoador:
     def __init__(self, root):
         self.root = root
@@ -133,7 +135,7 @@ class RegisterDoador:
 
         
                 
-        self.label1 = customtkinter.CTkLabel(root, text="Digite o CPF:")
+        self.label1 = customtkinter.CTkLabel(root, text=digiteOCpf)
         self.label1.grid(row=1, column=0, sticky="e")
         self.entry1 = customtkinter.CTkEntry(root)
         self.entry1.grid(row=1, column=1, padx=10)
@@ -260,7 +262,7 @@ class RemoverDoador:
         self.result_label = customtkinter.CTkLabel(root, text="")
         self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
         
-        self.label1 = customtkinter.CTkLabel(root, text="Digite o CPF:")
+        self.label1 = customtkinter.CTkLabel(root, text=digiteOCpf)
         self.label1.grid(row=1, column=0, sticky="e")
         self.entry1 = customtkinter.CTkEntry(root)
         self.entry1.grid(row=1, column=1, padx=10)
@@ -341,7 +343,7 @@ class ConsultarDoador:
         self.result_label = customtkinter.CTkLabel(root, text="")
         self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
         
-        self.label1 = customtkinter.CTkLabel(root, text="Digite o CPF:")
+        self.label1 = customtkinter.CTkLabel(root, text=digiteOCpf)
         self.label1.grid(row=1, column=0, sticky="e")
         self.entry1 = customtkinter.CTkEntry(root)
         self.entry1.grid(row=1, column=1, padx=10)
@@ -365,7 +367,7 @@ class ConsultarDoador:
         root_resultado.title("Resultado da Consulta")
 
         if doador_info:
-            resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=("Century Gothic bold", 14))
+            resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=(fonte, 14))
             resultado_label.pack(padx=50, pady=70)
         else:
             messagebox =CTkMessagebox(title="",message="O doador não foi encontrado",icon="warning", option_1="OK!")
@@ -406,7 +408,7 @@ class AlterarDoador:
         for i in range(2):
             self.root.grid_columnconfigure(i, weight=1)
 
-        self.label1 = customtkinter.CTkLabel(root, text="Digite o CPF:")
+        self.label1 = customtkinter.CTkLabel(root, text=digiteOCpf)
         self.label1.grid(row=1, column=0, sticky="e")
         self.entry1 = customtkinter.CTkEntry(root)
         self.entry1.grid(row=1, column=1, padx=10)
@@ -515,13 +517,13 @@ class AlterarDoador:
         CTkMessagebox(title="",message="O doador foi alterado com sucesso",icon="check", option_1="OK!")
         CTkMessagebox.show()
     
-    
+titulo = "Bolsa de Sangue"   
 class TelaBolsaSangue:
     def __init__(self, root):
         self.root = root
         customtkinter.set_appearance_mode("System")
         self.root.geometry("700x500")
-        self.root.title("Bolsa de Sangue")
+        self.root.title(titulo)
         self.root.resizable(False, False)
 
 
@@ -535,7 +537,7 @@ class TelaBolsaSangue:
         #self.result_label = customtkinter.CTkLabel(root, text="")
         #self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
 
-        self.spam = customtkinter.CTkLabel(root, text="Escolha uma opção:", font=("Century Gothic bold", 16), text_color="#fff" )
+        self.spam = customtkinter.CTkLabel(root, text=text_escolher_opcao, font=(fonte, 16), text_color="#fff" )
         self.spam.pack(padx=50, pady=70)
        
         self.button1 = customtkinter.CTkButton(root, text="Registrar Bolsa de Sangue", fg_color="#EE0303", command=self.abrir_tela_bolsa_register)
@@ -584,7 +586,7 @@ class ConsultaBolsa:
         self.root = root
         customtkinter.set_appearance_mode("System")
         self.root.geometry("700x500")
-        self.root.title("Bolsa de Sangue")
+        self.root.title(titulo)
         self.root.resizable(False, False)
 
 
@@ -597,7 +599,7 @@ class ConsultaBolsa:
         self.result_label = customtkinter.CTkLabel(root, text="")
         self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
  
-        self.label12 = customtkinter.CTkLabel(root, text="Digite o cpf:")
+        self.label12 = customtkinter.CTkLabel(root, text=digiteOCpf)
         self.label12.grid(row=2, column=0, sticky="e")
         self.entry12 = customtkinter.CTkEntry(root)
         self.entry12.grid(row=2, column=1, padx=10)
@@ -643,7 +645,7 @@ class ConsultaBolsa:
         root_resultado.title("Resultado da Consulta")
 
         if doador_info:
-            resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=("Century Gothic bold", 14))
+            resultado_label = customtkinter.CTkLabel(root_resultado, text=doador_info, font=(fonte, 14))
             resultado_label.pack(padx=50, pady=70)
         else:
             CTkMessagebox(title="",message="Bolsa de sangue não foi encontrado",icon="cancel", option_1="OK!")
@@ -655,7 +657,7 @@ class RemoverBolsa:
         self.root = root
         customtkinter.set_appearance_mode("System")
         self.root.geometry("700x500")
-        self.root.title("Bolsa de Sangue")
+        self.root.title(titulo)
         self.root.resizable(False, False)
 
 
@@ -668,7 +670,7 @@ class RemoverBolsa:
         self.result_label = customtkinter.CTkLabel(root, text="")
         self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
 
-        self.label12 = customtkinter.CTkLabel(root, text="Digite o cpf:")
+        self.label12 = customtkinter.CTkLabel(root, text=digiteOCpf)
         self.label12.grid(row=2, column=0, sticky="e")
         self.entry12 = customtkinter.CTkEntry(root)
         self.entry12.grid(row=2, column=1, padx=10)
@@ -719,7 +721,7 @@ class RegisterBolsa:
         self.root = root
         customtkinter.set_appearance_mode("System")
         self.root.geometry("700x500")
-        self.root.title("Bolsa de Sangue")
+        self.root.title(titulo)
         self.root.resizable(False, False)
 
 
@@ -737,7 +739,7 @@ class RegisterBolsa:
         self.entry11 = customtkinter.CTkEntry(root)
         self.entry11.grid(row=1, column=1, padx=10)
 
-        self.label12 = customtkinter.CTkLabel(root, text="Digite o cpf:")
+        self.label12 = customtkinter.CTkLabel(root, text=digiteOCpf)
         self.label12.grid(row=2, column=0, sticky="e")
         self.entry12 = customtkinter.CTkEntry(root)
         self.entry12.grid(row=2, column=1, padx=10)
