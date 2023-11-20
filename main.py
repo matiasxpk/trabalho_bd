@@ -115,7 +115,7 @@ class TelaDoador:
         alterarDoador(root)
         root.mainloop()
     
-class registerDoador:
+class RegisterDoador:
     def __init__(self, root):
         self.root = root
         customtkinter.set_appearance_mode("System")
@@ -240,7 +240,7 @@ class registerDoador:
         CTkMessagebox(title="",message="O doador foi cadastrado com sucesso",icon="check", option_1="OK!")
         CTkMessagebox.show()
 
-class removerDoador:
+class RemoverDoador:
     def __init__(self, root):
         self.root = root
         customtkinter.set_appearance_mode("System")
@@ -322,7 +322,7 @@ class removerDoador:
         CTkMessagebox.show()
  
 
-class consultDoador:
+class ConsultarDoador:
     def __init__(self, root):
         self.root = root
         customtkinter.set_appearance_mode("System")
@@ -391,7 +391,7 @@ class consultDoador:
         self.abrir_tela_consulta_doador(doador_info, self.root)
         print(doador_info)  # Exibir no terminal # Exibir no terminal
 
-class alterarDoador:
+class AlterarDoador:
     def __init__(self, root):
         self.root = root
         customtkinter.set_appearance_mode("System")
@@ -578,7 +578,7 @@ class TelaBolsaSangue:
 
  # Exibir no terminal
      
-class consultaBolsa:
+class ConsultaBolsa:
 
     def __init__(self, root):
         self.root = root
@@ -650,7 +650,7 @@ class consultaBolsa:
             CTkMessagebox.show()
         root_resultado.mainloop()
 
-class removerBolsa:
+class RemoverBolsa:
     def __init__(self, root):
         self.root = root
         customtkinter.set_appearance_mode("System")
@@ -714,7 +714,7 @@ class removerBolsa:
     # Show some positive message with the checkmark icon
         CTkMessagebox(title="",message="Bolsa de sangue foi removido",icon="check", option_1="OK!")
         CTkMessagebox.show()
-class registerBolsa:
+class RegisterBolsa:
     def __init__(self, root):
         self.root = root
         customtkinter.set_appearance_mode("System")
