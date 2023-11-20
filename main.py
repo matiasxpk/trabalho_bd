@@ -94,25 +94,25 @@ class TelaDoador:
     def abrir_tela_doador_register(self):
         self.root.destroy()  # Fechar a tela inicial
         root = customtkinter.CTk()
-        registerDoador(root)
+        RegisterDoador(root)
         root.mainloop()
 
     def abrir_tela_doador_remover(self):
         self.root.destroy()  # Fechar a tela inicial
         root = customtkinter.CTk()
-        removerDoador(root)
+        RemoverDoador(root)
         root.mainloop()
 
     def abrir_tela_doador_consultar(self):
         self.root.destroy()  # Fechar a tela inicial
         root = customtkinter.CTk()
-        consultDoador(root)
+        ConsultarDoador(root)
         root.mainloop()
 
     def abrir_tela_doador_alterar(self):
         self.root.destroy()  # Fechar a tela inicial
         root = customtkinter.CTk()
-        alterarDoador(root)
+        AlterarDoador(root)
         root.mainloop()
     
 class RegisterDoador:
