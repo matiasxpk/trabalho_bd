@@ -534,7 +534,6 @@ class TelaBolsaSangue:
         for i in range(2):
             self.root.grid_columnconfigure(i, weight=1)
 
-        #self.result_label = customtkinter.CTkLabel(root, text="")
         #self.result_label.grid(row=0, column=0, columnspan=2, sticky="nsew")
 
         self.spam = customtkinter.CTkLabel(root, text=text_escolher_opcao, font=(fonte, 16), text_color="#fff" )
